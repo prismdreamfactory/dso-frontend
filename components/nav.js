@@ -1,38 +1,46 @@
 import React from 'react';
 import Link from 'next/link';
 
-const links = [
-  { href: 'https://github.com/segmentio/create-next-app', label: 'Login' }
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`;
-  return link;
-});
+// const links = [
+//   { href: '/search', label: 'Search' }
+// ].map(link => {
+//   link.key = `nav-link-${link.href}-${link.label}`;
+//   return link;
+// });
 
 const Nav = () => (
   <nav>
-    <div className="header--left" />
+    <div className="header--left">
+      <div className="header__group">
+        <Link href="/join">
+          <a className="header__link">Join</a>
+        </Link>
+        <Link href="/search">
+          <a className="header__link">Search</a>
+        </Link>
+      </div>
+    </div>
 
     <div className="header--center">
       <Link prefetch href="/">
-        <a>Designer Strains Only</a>
+        <h1>
+          <a className="logo">Designer Strains Only</a>
+        </h1>
       </Link>
     </div>
 
     <div className="header--right">
-      <ul>
-        <li>
-          <Link href="/login">
-            <a>Login</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/cart">
-            <a>
-              <img src="/static/icons/shopping-bag.svg" />
-            </a>
-          </Link>
-        </li>
-      </ul>
+      <div className="header__group">
+        <Link href="/shop">
+          <a className="header__link">Shop</a>
+        </Link>
+        <Link href="/login">
+          <a className="header__link">Login</a>
+        </Link>
+        <Link href="/cart">
+          <a className="header__link">Cart</a>
+        </Link>
+      </div>
     </div>
 
     <style jsx>{`
@@ -40,9 +48,11 @@ const Nav = () => (
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 0 1.78125rem;
       }
-      li {
-        float: left;
+
+      .logo {
+        cursor: pointer;
       }
 
       .header--left,
@@ -50,9 +60,18 @@ const Nav = () => (
         flex: 1;
         display: flex;
       }
-
       .header--right {
         justify-content: flex-end;
+      }
+      .header__group {
+        display: flex;
+        align-items: center;
+      }
+      .header__link {
+        margin-left: 1.875rem;
+      }
+      .header__link:first-child {
+        margin: 0;
       }
     `}</style>
   </nav>
