@@ -1,9 +1,7 @@
-import Nav from '../components/nav';
+import Layout from '../components/layout';
 
 const Shop = () => (
-  <div>
-    <Nav />
-
+  <Layout>
     <div className="vid-grid">
       <div className="vid-grid__row">
         <video src="/static/360-video-03.mp4" autoplay="" muted loop="true" />
@@ -35,7 +33,7 @@ const Shop = () => (
         margin: 0 0.5rem;
       }
     `}</style>
-  </div>
+  </Layout>
 );
 
 export default Shop;
