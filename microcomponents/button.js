@@ -12,10 +12,10 @@ class Button extends PureComponent {
 
         <style jsx>{`
           button {
-            text-align: center;
             box-sizing: border-box;
             cursor: pointer;
             display: inline-flex;
+            justify-content: center;
             height: 3rem;
             border-radius: 1.5rem;
             font-size: 0.9375rem;
