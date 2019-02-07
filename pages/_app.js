@@ -14,8 +14,16 @@ class MyApp extends App {
             <Component {...pageProps} />
 
             <style jsx global>{`
+              #main {
+              }
+
               body {
                 margin: 0;
+                font-family: 'Lato';
+              }
+
+              .logo {
+                font-family: 'Playfair Display';
               }
 
               h1,
@@ -23,13 +31,18 @@ class MyApp extends App {
               h3,
               h4,
               h5 {
-                font-family: 'Helvetica';
+                font-family: 'Playfair Display';
                 text-transform: uppercase;
               }
 
+              p {
+                line-height: 1.6;
+              }
+
               p,
-              a {
-                font-family: 'Helvetica';
+              a,
+              button {
+                font-family: 'Lato';
               }
 
               ul,
@@ -42,6 +55,17 @@ class MyApp extends App {
               a {
                 color: #000;
                 text-decoration: none;
+              }
+
+              a,
+              button {
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+                color: inherit;
+                text-decoration: none;
+                padding: 0;
+                outline: 0;
               }
 
               section {

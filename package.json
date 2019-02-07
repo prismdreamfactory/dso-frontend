@@ -16,6 +16,7 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
+    "react-svg": "^7.2.6",
     "redux": "^4.0.1"
   }
 }

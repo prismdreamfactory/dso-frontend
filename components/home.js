@@ -49,7 +49,6 @@ const Home = () => (
         margin: 0.5rem 0;
       }
       video {
-        width: 200px;
         margin: 0 0.5rem;
       }
     `}</style>

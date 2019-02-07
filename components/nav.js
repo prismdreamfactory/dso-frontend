@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import ReactSVG from 'react-svg';
 
 // const links = [
 //   { href: '/search', label: 'Search' }
@@ -9,14 +10,19 @@ import Link from 'next/link';
 // });
 
 const Nav = () => (
-  <nav>
+  <nav className="header">
     <div className="header--left">
       <div className="header__group">
         <Link href="/join">
           <a className="header__link">Join</a>
         </Link>
         <Link href="/search">
-          <a className="header__link">Search</a>
+          <a className="header__link">
+            <ReactSVG
+              src="/static/icons/_ionicons_svg_md-search.svg"
+              svgStyle={{ width: '20px' }}
+            />
+          </a>
         </Link>
       </div>
     </div>
@@ -35,10 +41,20 @@ const Nav = () => (
           <a className="header__link">Shop</a>
         </Link>
         <Link href="/login">
-          <a className="header__link">Login</a>
+          <a className="header__link">
+            <ReactSVG
+              src="/static/icons/_ionicons_svg_md-person.svg"
+              svgStyle={{ width: '20px' }}
+            />
+          </a>
         </Link>
         <Link href="/cart">
-          <a className="header__link">Cart</a>
+          <a className="header__link">
+            <ReactSVG
+              src="/static/icons/_ionicons_svg_ios-cart.svg"
+              svgStyle={{ width: '20px' }}
+            />
+          </a>
         </Link>
       </div>
     </div>
@@ -48,13 +64,16 @@ const Nav = () => (
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0 1.78125rem;
+        padding: 0 1.875rem;
       }
 
       .logo {
         cursor: pointer;
       }
 
+      .header {
+        border-bottom: 1px solid #e5e4e4;
+      }
       .header--left,
       .header--right {
         flex: 1;
