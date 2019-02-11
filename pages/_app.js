@@ -19,7 +19,7 @@ class MyApp extends App {
 
               body {
                 margin: 0;
-                font-family: 'Lato';
+                font-family: 'Raleway';
               }
 
               .logo {
@@ -31,8 +31,10 @@ class MyApp extends App {
               h3,
               h4,
               h5 {
-                font-family: 'Playfair Display';
+                // font-family: 'Playfair Display';
+                letter-spacing: 0.05em;
                 text-transform: uppercase;
+                -webkit-font-smoothing: antialiased;
               }
 
               p {
@@ -42,7 +44,7 @@ class MyApp extends App {
               p,
               a,
               button {
-                font-family: 'Lato';
+                font-family: 'Raleway';
               }
 
               ul,
@@ -68,11 +70,29 @@ class MyApp extends App {
                 outline: 0;
               }
 
+              img {
+                width: 100%;
+              }
+
               section {
                 display: flex;
                 justify-content: center;
                 flex-direction: column;
-                padding: 2rem;
+                max-width: 75rem;
+                width: 100%;
+                margin: 0 auto;
+              }
+
+              .section__title {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 1.875rem 0;
+              }
+              .section__title h2 {
+                font-family: 'Playfair Display';
+                margin-bottom: 0;
               }
             `}</style>
           </div>

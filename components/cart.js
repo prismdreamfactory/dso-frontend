@@ -3,6 +3,10 @@ import ReactSVG from 'react-svg';
 import Button from '../microcomponents/button';
 
 class Cart extends Component {
+  state = {
+    showCart: true
+  };
+
   closeCart = () => {
     console.log('closing cart');
   };
@@ -78,6 +82,7 @@ class Cart extends Component {
             justify-content: center;
             align-items: center;
             z-index: 11;
+            background: rgba(0, 0, 0, 0.6);
           }
 
           .cart {

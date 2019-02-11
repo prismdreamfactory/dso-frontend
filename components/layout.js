@@ -10,7 +10,7 @@ export default ({ children }) => (
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <link
-        href="https://fonts.googleapis.com/css?family=Lato"
+        href="https://fonts.googleapis.com/css?family=Raleway"
         rel="stylesheet"
         key="google-font-lato"
       />
@@ -25,11 +25,21 @@ export default ({ children }) => (
 
     <div className="container">{children}</div>
 
+    <footer />
+
     <style jsx>{`
       .container {
-        // max-width: 75rem;
         width: 100%;
-        margin: 1rem 0 auto;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      footer {
+        width: 100%;
+        height: 200px;
       }
     `}</style>
   </div>
