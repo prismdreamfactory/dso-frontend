@@ -21,6 +21,9 @@ class Index extends Component {
   }
 }
 
-const mapStateToProps = state => ({ products: state.products });
+const mapStateToProps = state => ({
+  products: state.products,
+  showCart: state.showCart
+});
 
 export default connect(mapStateToProps)(Index);

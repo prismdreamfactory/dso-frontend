@@ -9,8 +9,6 @@ class Home extends Component {
   render() {
     return (
       <div style={{ width: '100%' }}>
-        {this.props.showCart && <Cart />}
-
         <div className="hero">
           <div className="hero__image">
             <section>

@@ -1,4 +1,5 @@
 import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const initialState = {
   products: [
@@ -37,7 +38,7 @@ export const reducer = (state = initialState, action) => {
     case actionTypes.VIEW_CART:
       return {
         ...state,
-        showCart: !action.showCart
+        showCart: !state.showCart
       };
 
     default:
@@ -45,13 +46,8 @@ export const reducer = (state = initialState, action) => {
   }
 };
 
-// export const viewCart = () => ({ type: actionTypes.VIEW_CART });
-
-export const viewCart = () => {
-  console.log('viewed');
-  return { type: actionTypes.VIEW_CART };
-};
+export const viewCart = () => ({ type: actionTypes.VIEW_CART });
 
 export function initializeStore(initialState = initialState) {
-  return createStore(reducer, initialState);
+  return createStore(reducer, composeWithDevTools());
 }

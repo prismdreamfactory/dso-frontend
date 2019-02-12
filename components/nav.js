@@ -13,7 +13,7 @@ import ReactSVG from 'react-svg';
 
 class Nav extends Component {
   showCart = () => {
-    viewCart();
+    this.props.viewCart();
   };
 
   render() {
