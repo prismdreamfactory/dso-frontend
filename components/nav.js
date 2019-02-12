@@ -72,10 +72,10 @@ class Nav extends Component {
             align-items: center;
             // padding: 0 1.875rem;
 
-            position: fixed;
-            width: 100%;
-            z-index: 1;
-            background: #fff;
+            // position: fixed;
+            // width: 100%;
+            // z-index: 1;
+            // background: #fff;
           }
 
           .logo {

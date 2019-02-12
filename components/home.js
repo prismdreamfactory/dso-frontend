@@ -1,58 +1,228 @@
-const Home = () => (
-  <div>
-    <section>
-      <h2>How it Works</h2>
-      <p>
-        Tempor eiusmod sit laborum non labore. Ullamco mollit velit aute
-        excepteur labore proident reprehenderit commodo consequat id. Fugiat
-        magna quis incididunt ex id quis pariatur.Lorem consequat deserunt
-        consequat qui officia laboris.
-      </p>
-      <p>
-        Dolore commodo veniam qui officia. Enim velit cillum laboris dolore et
-        fugiat dolor dolor velit velit nisi non ea. Veniam sunt non eiusmod
-        laboris in id dolore cupidatat non. Aute veniam est aliquip amet labore
-        id eiusmod. Amet sunt adipisicing commodo anim do sunt mollit ipsum id
-        eiusmod sit occaecat proident. Adipisicing do incididunt voluptate do ut
-        laboris incididunt aliquip magna ex qui anim ipsum quis.
-      </p>
-    </section>
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Layout from '../components/layout';
+import Cart from '../components/cart';
+import Button from '../microcomponents/button';
+import { viewCart } from '../store';
 
-    <section>
-      <h2>How it Works</h2>
-      <p>
-        Tempor eiusmod sit laborum non labore. Ullamco mollit velit aute
-        excepteur labore proident reprehenderit commodo consequat id. Fugiat
-        magna quis incididunt ex id quis pariatur.Lorem consequat deserunt
-        consequat qui officia laboris.
-      </p>
-      <p>
-        Dolore commodo veniam qui officia. Enim velit cillum laboris dolore et
-        fugiat dolor dolor velit velit nisi non ea. Veniam sunt non eiusmod
-        laboris in id dolore cupidatat non. Aute veniam est aliquip amet labore
-        id eiusmod. Amet sunt adipisicing commodo anim do sunt mollit ipsum id
-        eiusmod sit occaecat proident. Adipisicing do incididunt voluptate do ut
-        laboris incididunt aliquip magna ex qui anim ipsum quis.
-      </p>
-    </section>
+class Home extends Component {
+  render() {
+    return (
+      <div style={{ width: '100%' }}>
+        {this.props.showCart && <Cart />}
 
-    <style jsx>{`
-      .vid-grid {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-      }
-      .vid-grid__row {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0.5rem 0;
-      }
-      video {
-        margin: 0 0.5rem;
-      }
-    `}</style>
-  </div>
-);
+        <div className="hero">
+          <div className="hero__image">
+            <section>
+              <div className="hero__description">
+                <h3>High-end designer strains only</h3>
+                <p>
+                  Get a curated box monthly filled with certified DSO-grade
+                  cannabis products delivered to you.
+                </p>
+                <Button label="Subscribe" alt />
+              </div>
+            </section>
+          </div>
+        </div>
 
-export default Home;
+        <div className="brands">
+          <section className="brands__container">
+            <div className="brands__logo">
+              <img src="/static/logo-jungleboys.png" />
+            </div>
+            <div className="brands__logo">
+              <img src="/static/logo-jungleboys.png" />
+            </div>
+            <div className="brands__logo">
+              <img src="/static/logo-jungleboys.png" />
+            </div>
+            <div className="brands__logo">
+              <img src="/static/logo-jungleboys.png" />
+            </div>
+          </section>
+        </div>
+
+        <div className="section__title">
+          <h2>How It Works</h2>
+          <p>DSO Grade Strains A La Carte</p>
+        </div>
+
+        <section>
+          <div>
+            <div className="vid-grid">
+              <div className="vid-grid__row">
+                <video
+                  src="/static/360-video-03.mp4"
+                  autoPlay
+                  muted
+                  loop={true}
+                />
+                <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+                <video
+                  src="/static/360-video-03.mp4"
+                  autoPlay
+                  muted
+                  loop={true}
+                />
+                <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+                <video
+                  src="/static/360-video-03.mp4"
+                  autoPlay
+                  muted
+                  loop={true}
+                />
+              </div>
+              <div className="vid-grid__row">
+                <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+                <video
+                  src="/static/360-video-03.mp4"
+                  autoPlay
+                  muted
+                  loop={true}
+                />
+                <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+                <video
+                  src="/static/360-video-03.mp4"
+                  autoPlay
+                  muted
+                  loop={true}
+                />
+                <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+              </div>
+            </div>
+          </div>
+
+          <div className="section__title">
+            <h2>Subscribe</h2>
+            <p>DSO Grade Strains A La Carte</p>
+          </div>
+
+          {/* <div className="product">
+            <img className="product__image" src="/static/product-02.jpg" />
+            <img className="product__image" src="/static/curt-ice-01.jpg" />
+            <img className="product__image" src="/static/product-02.jpg" />
+          </div>
+
+          <div className="product">
+            <img className="product__image" src="/static/curt-ice-01.jpg" />
+            <img className="product__image" src="/static/product-02.jpg" />
+            <img className="product__image" src="/static/curt-ice-01.jpg" />
+          </div> */}
+
+          <div className="section__title">
+            <h2>Featured</h2>
+            <p>DSO Grade Strains A La Carte</p>
+          </div>
+
+          <div className="products--large">
+            <div className="product--large">
+              <img src="/static/curt-ice-02.jpg" />
+            </div>
+            <div className="product--large">
+              <img src="/static/curt-ice-02.jpg" />
+            </div>
+          </div>
+        </section>
+
+        <style jsx>{`
+          .hero {
+            display: flex;
+            width: 100%;
+            height: 450px;
+            position: relative;
+          }
+
+          .hero__image {
+            width: 100%;
+            background-size: cover;
+            background-position: 0 50%;
+            background-image: url(/static/hero.jpg);
+            display: flex;
+            justify-content: center;
+          }
+
+          .hero__description {
+            color: #fff;
+            max-width: 40%;
+          }
+
+          .brands {
+            width: 100%;
+            padding: 1rem 0;
+            // background: #000;
+            border-bottom: 1px solid #ccc;
+          }
+
+          .brands__container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+          }
+          .brands__logo {
+            max-width: 75px;
+          }
+
+          .vid-grid {
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+          }
+          .vid-grid__row {
+            display: flex;
+            align-items: center;
+            margin: 0.5rem 0;
+          }
+          video {
+            width: calc(20% - 0.8rem);
+            margin-right: 1rem;
+          }
+          video:last-child {
+            margin: 0;
+          }
+
+          .product {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+          }
+          .product__image {
+            width: calc(33.333333% - 0.6666rem);
+            margin-right: 1rem;
+          }
+          .product__image:last-child {
+            margin: 0;
+          }
+
+          .product__info {
+            margin: 0 3.75rem;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+          }
+
+          .products--large {
+            display: flex;
+            justify-content: center;
+          }
+
+          .product--large {
+            margin-right: 2rem;
+          }
+          .product--large:last-child {
+            margin-right: 0;
+          }
+        `}</style>
+      </div>
+    );
+  }
+}
+
+export default connect(
+  '',
+  { viewCart }
+)(Home);

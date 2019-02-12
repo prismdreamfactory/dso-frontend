@@ -25,7 +25,9 @@ export default ({ children }) => (
 
     <div className="container">{children}</div>
 
-    <footer />
+    <footer>
+      <p>Copyright Designer Strains Only 2019</p>
+    </footer>
 
     <style jsx>{`
       .container {
@@ -39,7 +41,13 @@ export default ({ children }) => (
 
       footer {
         width: 100%;
-        height: 200px;
+        height: 100px;
+        margin-top: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        color: #fff;
       }
     `}</style>
   </div>

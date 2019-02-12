@@ -49,7 +49,7 @@ class Shop extends Component {
         </div>
 
         <div className="section__title">
-          <h2>Featured</h2>
+          <h2>How It Works</h2>
           <p>DSO Grade Strains A La Carte</p>
         </div>
 
@@ -140,6 +140,11 @@ class Shop extends Component {
             <img className="product__image" src="/static/curt-ice-01.jpg" />
           </div> */}
 
+          <div className="section__title">
+            <h2>Featured</h2>
+            <p>DSO Grade Strains A La Carte</p>
+          </div>
+
           <div className="products--large">
             <div className="product--large">
               <img src="/static/curt-ice-02.jpg" />
@@ -161,7 +166,8 @@ class Shop extends Component {
           .hero__image {
             width: 100%;
             background-size: cover;
-            background-image: url(/static/hero2.jpg);
+            background-position: 0 50%;
+            background-image: url(/static/hero.jpg);
             display: flex;
             justify-content: center;
           }

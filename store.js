@@ -1,7 +1,5 @@
 import { createStore } from 'redux';
 
-export const actionTypes = {};
-
 const initialState = {
   products: [
     {
@@ -25,15 +23,33 @@ const initialState = {
       image: 'url',
       id: 3
     }
-  ]
+  ],
+  showCart: false
+};
+
+export const actionTypes = {
+  VIEW_CART: 'VIEW_CART'
 };
 
 // REDUCERS
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.VIEW_CART:
+      return {
+        ...state,
+        showCart: !action.showCart
+      };
+
     default:
       return state;
   }
+};
+
+// export const viewCart = () => ({ type: actionTypes.VIEW_CART });
+
+export const viewCart = () => {
+  console.log('viewed');
+  return { type: actionTypes.VIEW_CART };
 };
 
 export function initializeStore(initialState = initialState) {
