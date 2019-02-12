@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { viewCart } from '../store';
+import { toggleCart } from '../store';
 import Link from 'next/link';
 import ReactSVG from 'react-svg';
 
@@ -13,7 +13,7 @@ import ReactSVG from 'react-svg';
 
 class Nav extends Component {
   showCart = () => {
-    this.props.viewCart();
+    this.props.toggleCart();
   };
 
   render() {
@@ -115,5 +115,5 @@ const mapStateToProps = state => ({ products: state.products });
 
 export default connect(
   mapStateToProps,
-  { viewCart }
+  { toggleCart }
 )(Nav);

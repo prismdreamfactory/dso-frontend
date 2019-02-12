@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ReactSVG from 'react-svg';
 import Button from '../microcomponents/button';
 
-class Cart extends Component {
-  state = {
-    showCart: true
-  };
+import { toggleCart } from '../store';
 
+class Cart extends Component {
   closeCart = () => {
-    console.log('closing cart');
+    this.props.toggleCart();
   };
 
   render() {
@@ -169,4 +168,7 @@ class Cart extends Component {
   }
 }
 
-export default Cart;
+export default connect(
+  '',
+  { toggleCart }
+)(Cart);

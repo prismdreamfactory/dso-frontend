@@ -29,13 +29,13 @@ const initialState = {
 };
 
 export const actionTypes = {
-  VIEW_CART: 'VIEW_CART'
+  TOGGLE_CART: 'TOGGLE_CART'
 };
 
 // REDUCERS
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.VIEW_CART:
+    case actionTypes.TOGGLE_CART:
       return {
         ...state,
         showCart: !state.showCart
@@ -46,7 +46,7 @@ export const reducer = (state = initialState, action) => {
   }
 };
 
-export const viewCart = () => ({ type: actionTypes.VIEW_CART });
+export const toggleCart = () => ({ type: actionTypes.TOGGLE_CART });
 
 export function initializeStore(initialState = initialState) {
   return createStore(reducer, composeWithDevTools());
