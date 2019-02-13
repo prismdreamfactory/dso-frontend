@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Layout from '../components/layout';
 import Cart from '../components/cart';
 import Button from '../microcomponents/button';
-import { viewCart } from '../store';
+import { toggleCart } from '../store';
 
 class Home extends Component {
   render() {
@@ -18,7 +18,7 @@ class Home extends Component {
                   Get a curated box monthly filled with certified DSO-grade
                   cannabis products delivered to you.
                 </p>
-                <Button label="Subscribe" alt />
+                <Button label="Subscribe" alt href="/subscribe" />
               </div>
             </section>
           </div>
@@ -222,5 +222,5 @@ class Home extends Component {
 
 export default connect(
   '',
-  { viewCart }
+  { toggleCart }
 )(Home);

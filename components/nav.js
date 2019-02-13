@@ -21,14 +21,14 @@ class Nav extends Component {
       <nav className="header">
         <div className="header--left">
           <div className="header__group">
-            <Link href="/join">
+            <Link href="/subscribe">
               <a className="header__link">Join</a>
             </Link>
             <Link href="/search">
               <a className="header__link">
                 <ReactSVG
                   src="/static/icons/_ionicons_svg_md-search.svg"
-                  svgStyle={{ width: '20px' }}
+                  svgStyle={{ width: '20px', fill: '#fff' }}
                 />
               </a>
             </Link>
@@ -52,14 +52,14 @@ class Nav extends Component {
               <a className="header__link">
                 <ReactSVG
                   src="/static/icons/_ionicons_svg_md-person.svg"
-                  svgStyle={{ width: '20px' }}
+                  svgStyle={{ width: '20px', fill: '#fff' }}
                 />
               </a>
             </Link>
             <a onClick={this.showCart} className="header__link">
               <ReactSVG
                 src="/static/icons/_ionicons_svg_ios-cart.svg"
-                svgStyle={{ width: '20px' }}
+                svgStyle={{ width: '20px', fill: '#fff' }}
               />
             </a>
           </div>
@@ -72,9 +72,11 @@ class Nav extends Component {
             align-items: center;
             // padding: 0 1.875rem;
 
+            position: absolute;
             // position: fixed;
-            // width: 100%;
-            // z-index: 1;
+            width: 100%;
+            z-index: 1;
+            color: #fff;
             // background: #fff;
           }
 
@@ -83,7 +85,7 @@ class Nav extends Component {
           }
 
           .header {
-            border-bottom: 1px solid #e5e4e4;
+            // border-bottom: 1px solid #e5e4e4;
           }
           .header--left,
           .header--right {
