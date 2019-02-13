@@ -21,11 +21,8 @@ class Shop extends Component {
             <section>
               <div className="hero__description">
                 <h3>High-end designer strains only</h3>
-                <p>
-                  Get a curated box monthly filled with certified DSO-grade
-                  cannabis products delivered to you.
-                </p>
-                <Button label="Subscribe" alt />
+                <p>Want to order? Visit our store.</p>
+                <Button label="Shop" alt href="/shop" />
               </div>
             </section>
           </div>
@@ -63,6 +60,7 @@ class Shop extends Component {
           .hero__description {
             color: #fff;
             max-width: 40%;
+            padding: 0 2rem;
           }
 
           .brands {

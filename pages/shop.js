@@ -45,6 +45,48 @@ class Shop extends Component {
         </div>
 
         <section className="shop">
+          <div className="vid-grid">
+            <div className="vid-grid__row">
+              <video
+                src="/static/360-video-03.mp4"
+                autoPlay
+                muted
+                loop={true}
+              />
+              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+              <video
+                src="/static/360-video-03.mp4"
+                autoPlay
+                muted
+                loop={true}
+              />
+              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+              <video
+                src="/static/360-video-03.mp4"
+                autoPlay
+                muted
+                loop={true}
+              />
+            </div>
+            <div className="vid-grid__row">
+              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+              <video
+                src="/static/360-video-03.mp4"
+                autoPlay
+                muted
+                loop={true}
+              />
+              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+              <video
+                src="/static/360-video-03.mp4"
+                autoPlay
+                muted
+                loop={true}
+              />
+              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+            </div>
+          </div>
+
           <div className="products">
             <div
               className="product"
@@ -124,6 +166,13 @@ class Shop extends Component {
           .hero__description {
             color: #fff;
             max-width: 40%;
+            padding: 0 2rem;
+          }
+
+          @media (max-width: 768px) {
+            .hero__description {
+              max-width: 100%;
+            }
           }
 
           .brands {
@@ -174,9 +223,13 @@ class Shop extends Component {
           .product {
             display: flex;
             flex-direction: column;
-            width: calc(33.333333% - 2rem);
-            margin: 0 2rem 1.5rem 0;
+            width: calc(33.333333% - 1.33333rem);
+            margin: 2rem 2rem 1.5rem 0;
             cursor: pointer;
+          }
+
+          .product:last-child {
+            margin-right: 0;
           }
 
           .product__image {

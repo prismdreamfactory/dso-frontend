@@ -47,49 +47,7 @@ class Home extends Component {
         </div>
 
         <section>
-          <div>
-            <div className="vid-grid">
-              <div className="vid-grid__row">
-                <video
-                  src="/static/360-video-03.mp4"
-                  autoPlay
-                  muted
-                  loop={true}
-                />
-                <video src="/static/video-03.mp4" autoPlay muted loop={true} />
-                <video
-                  src="/static/360-video-03.mp4"
-                  autoPlay
-                  muted
-                  loop={true}
-                />
-                <video src="/static/video-03.mp4" autoPlay muted loop={true} />
-                <video
-                  src="/static/360-video-03.mp4"
-                  autoPlay
-                  muted
-                  loop={true}
-                />
-              </div>
-              <div className="vid-grid__row">
-                <video src="/static/video-03.mp4" autoPlay muted loop={true} />
-                <video
-                  src="/static/360-video-03.mp4"
-                  autoPlay
-                  muted
-                  loop={true}
-                />
-                <video src="/static/video-03.mp4" autoPlay muted loop={true} />
-                <video
-                  src="/static/360-video-03.mp4"
-                  autoPlay
-                  muted
-                  loop={true}
-                />
-                <video src="/static/video-03.mp4" autoPlay muted loop={true} />
-              </div>
-            </div>
-          </div>
+          <div />
 
           <div className="section__title">
             <h2>Subscribe</h2>
@@ -111,6 +69,48 @@ class Home extends Component {
           <div className="section__title">
             <h2>Featured</h2>
             <p>DSO Grade Strains A La Carte</p>
+          </div>
+
+          <div className="vid-grid">
+            <div className="vid-grid__row">
+              <video
+                src="/static/360-video-03.mp4"
+                autoPlay
+                muted
+                loop={true}
+              />
+              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+              <video
+                src="/static/360-video-03.mp4"
+                autoPlay
+                muted
+                loop={true}
+              />
+              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+              <video
+                src="/static/360-video-03.mp4"
+                autoPlay
+                muted
+                loop={true}
+              />
+            </div>
+            <div className="vid-grid__row">
+              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+              <video
+                src="/static/360-video-03.mp4"
+                autoPlay
+                muted
+                loop={true}
+              />
+              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+              <video
+                src="/static/360-video-03.mp4"
+                autoPlay
+                muted
+                loop={true}
+              />
+              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+            </div>
           </div>
 
           <div className="products--large">
@@ -143,6 +143,7 @@ class Home extends Component {
           .hero__description {
             color: #fff;
             max-width: 40%;
+            padding: 0 2rem;
           }
 
           .brands {
@@ -166,6 +167,7 @@ class Home extends Component {
             display: flex;
             align-items: flex-end;
             flex-direction: column;
+            margin: 1rem 0;
           }
           .vid-grid__row {
             display: flex;
