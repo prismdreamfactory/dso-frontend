@@ -22,7 +22,6 @@ class Index extends Component {
 }
 
 const mapStateToProps = state => ({
-  products: state.products,
   showCart: state.showCart
 });
 

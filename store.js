@@ -25,11 +25,13 @@ const initialState = {
       id: 3
     }
   ],
-  showCart: false
+  showCart: false,
+  showProduct: false
 };
 
 export const actionTypes = {
-  TOGGLE_CART: 'TOGGLE_CART'
+  TOGGLE_CART: 'TOGGLE_CART',
+  VIEW_PRODUCT: 'VIEW_PRODUCT'
 };
 
 // REDUCERS
@@ -41,12 +43,20 @@ export const reducer = (state = initialState, action) => {
         showCart: !state.showCart
       };
 
+    case actionTypes.VIEW_PRODUCT:
+      return {
+        ...state,
+        showProduct: !state.showProduct
+      };
+
     default:
       return state;
   }
 };
 
 export const toggleCart = () => ({ type: actionTypes.TOGGLE_CART });
+
+export const viewProduct = () => ({ type: actionTypes.VIEW_PRODUCT });
 
 export function initializeStore(initialState = initialState) {
   return createStore(reducer, composeWithDevTools());
