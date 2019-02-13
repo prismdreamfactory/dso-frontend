@@ -94,6 +94,7 @@ class Cart extends Component {
             background-color: rgb(255, 255, 255);
             border-radius: 0.4rem;
             padding: 1rem 4rem 0;
+            transition: 1s ease;
           }
 
           .cart__row {
