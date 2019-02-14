@@ -24,14 +24,12 @@ class Nav extends Component {
             <Link href="/subscribe">
               <a className="header__link">Join</a>
             </Link>
-            <Link href="/search">
-              <a className="header__link">
-                <ReactSVG
-                  src="/static/icons/_ionicons_svg_md-search.svg"
-                  svgStyle={{ width: '20px', fill: '#fff' }}
-                />
-              </a>
-            </Link>
+            <a className="header__link">
+              <ReactSVG
+                src="/static/icons/_ionicons_svg_md-search.svg"
+                svgStyle={{ width: '20px', fill: '#fff' }}
+              />
+            </a>
           </div>
         </div>
 
@@ -48,14 +46,12 @@ class Nav extends Component {
             <Link href="/shop">
               <a className="header__link">Shop</a>
             </Link>
-            <Link href="/login">
-              <a className="header__link">
-                <ReactSVG
-                  src="/static/icons/_ionicons_svg_md-person.svg"
-                  svgStyle={{ width: '20px', fill: '#fff' }}
-                />
-              </a>
-            </Link>
+            <a className="header__link">
+              <ReactSVG
+                src="/static/icons/_ionicons_svg_md-person.svg"
+                svgStyle={{ width: '20px', fill: '#fff' }}
+              />
+            </a>
             <a onClick={this.showCart} className="header__link">
               <ReactSVG
                 src="/static/icons/_ionicons_svg_ios-cart.svg"
