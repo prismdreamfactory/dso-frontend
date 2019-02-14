@@ -253,6 +253,30 @@ class Shop extends Component {
             font-weight: 700;
             margin-top: 0.5rem;
           }
+
+          @media (max-width: 768px) {
+            .shop {
+              margin: 0;
+            }
+            .brands__container {
+              flex-direction: column;
+            }
+            .brands__logo {
+              margin-bottom: 0.5rem;
+            }
+            .vid-grid {
+              display: none;
+            }
+
+            .product {
+              width: 100%;
+              margin-right: 1rem;
+            }
+
+            .product__image {
+              height: 150px;
+            }
+          }
         `}</style>
       </Layout>
     );

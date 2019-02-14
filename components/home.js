@@ -70,8 +70,6 @@ class Home extends Component {
         </div>
 
         <section>
-          <div />
-
           <div className="section__title">
             <h2>Featured</h2>
             <p>DSO Grade Strains A La Carte</p>
@@ -242,6 +240,16 @@ class Home extends Component {
           }
           .product--large:last-child {
             margin-right: 0;
+          }
+
+          @media (max-width: 768px) {
+            .hero__description {
+              max-width: 100%;
+            }
+
+            .how__items {
+              display: block;
+            }
           }
         `}</style>
       </div>

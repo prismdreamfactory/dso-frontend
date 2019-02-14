@@ -61,6 +61,12 @@ class Nav extends Component {
           </div>
         </div>
 
+        <div className="mobile-nav">
+          <span />
+          <span />
+          <span />
+        </div>
+
         <style jsx>{`
           nav {
             display: flex;
@@ -102,6 +108,70 @@ class Nav extends Component {
           }
           .header__link:first-child {
             margin: 0;
+          }
+
+          .mobile-nav {
+            display: hidden;
+          }
+
+          @media (max-width: 768px) {
+            .header--left,
+            .header--right {
+              display: none;
+            }
+
+            .logo {
+              font-size: 1rem;
+            }
+
+            .mobile-nav {
+              display: block;
+              left: 1rem;
+              top: 1.5rem;
+              position: absolute;
+            }
+
+            .mobile-nav span {
+              display: block;
+              width: 33px;
+              height: 2px;
+              margin-bottom: 10px;
+              position: relative;
+
+              background: #cdcdcd;
+              border-radius: 3px;
+
+              z-index: 1;
+
+              transform-origin: 4px 0px;
+
+              transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+                background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+                opacity 0.55s ease;
+            }
+
+            .mobile-nav span:first-child {
+              transform-origin: 0% 0%;
+            }
+
+            .mobile-nav span:nth-last-child(2) {
+              transform-origin: 0% 100%;
+            }
+
+            .mobile-nav input:checked ~ span {
+              opacity: 1;
+              transform: rotate(45deg) translate(-2px, -1px);
+              background: #232323;
+            }
+
+            .mobile-nav input:checked ~ span:nth-last-child(3) {
+              opacity: 0;
+              transform: rotate(0deg) scale(0.2, 0.2);
+            }
+
+            .mobile-nav input:checked ~ span:nth-last-child(2) {
+              transform: rotate(-45deg) translate(0, -1px);
+            }
           }
         `}</style>
       </nav>
