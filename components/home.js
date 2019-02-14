@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Layout from '../components/layout';
-import Cart from '../components/cart';
 import Button from '../microcomponents/button';
+import ReactSVG from 'react-svg';
 import { toggleCart } from '../store';
 
 class Home extends Component {
@@ -46,25 +45,32 @@ class Home extends Component {
           <p>DSO Grade Strains A La Carte</p>
         </div>
 
+        <div className="how">
+          <section className="how__container">
+            <div className="how__items">
+              <div className="how__item">
+                <img className="how__image" src="/static/icons/au-box.svg" />
+                <p>Select your box.</p>
+              </div>
+              <div className="how__item">
+                <img className="how__image" src="/static/icons/au-id.svg" />
+                <p>Create account.</p>
+              </div>
+              <div className="how__item">
+                <img
+                  className="how__image"
+                  src="/static/icons/au-deliver.svg"
+                />
+                <p>Get it delivered.</p>
+              </div>
+            </div>
+
+            <Button label="Join" href="/subscribe" />
+          </section>
+        </div>
+
         <section>
           <div />
-
-          <div className="section__title">
-            <h2>Subscribe</h2>
-            <p>DSO Grade Strains A La Carte</p>
-          </div>
-
-          {/* <div className="product">
-            <img className="product__image" src="/static/product-02.jpg" />
-            <img className="product__image" src="/static/curt-ice-01.jpg" />
-            <img className="product__image" src="/static/product-02.jpg" />
-          </div>
-
-          <div className="product">
-            <img className="product__image" src="/static/curt-ice-01.jpg" />
-            <img className="product__image" src="/static/product-02.jpg" />
-            <img className="product__image" src="/static/curt-ice-01.jpg" />
-          </div> */}
 
           <div className="section__title">
             <h2>Featured</h2>
@@ -161,6 +167,27 @@ class Home extends Component {
           }
           .brands__logo {
             max-width: 75px;
+          }
+
+          .how__container {
+            display: flex;
+            align-items: center;
+          }
+
+          .how__items {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 2rem;
+          }
+
+          .how__item {
+            text-align: center;
+          }
+
+          .how__image {
+            height: 200px;
           }
 
           .vid-grid {
