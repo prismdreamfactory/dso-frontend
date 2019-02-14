@@ -3,18 +3,26 @@ import { connect } from 'react-redux';
 import Layout from '../components/layout';
 import Cart from '../components/cart';
 import Button from '../microcomponents/button';
+import Product from '../components/product';
+import { toggleCart, viewProduct } from '../store';
 
-class Shop extends Component {
+class Subscribe extends Component {
   static getInitialProps({ reduxStore, req }) {
     const isServer = !!req;
 
     return {};
   }
 
+  showProduct = () => {
+    this.props.viewProduct();
+  };
+
   render() {
     return (
       <Layout>
         {this.props.showCart && <Cart />}
+
+        {this.props.showProduct && <Product />}
 
         <div className="hero">
           <div className="hero__image">
@@ -33,10 +41,31 @@ class Shop extends Component {
         </div>
 
         <section>
-          <div className="product">
-            <img className="product__image" src="/static/product-02.jpg" />
-            <img className="product__image" src="/static/curt-ice-01.jpg" />
-            <img className="product__image" src="/static/product-02.jpg" />
+          <div className="products">
+            <div className="product" onClick={this.showProduct}>
+              <img className="product__image" src="/static/curt-ice-01.jpg" />
+              <div className="product__info">
+                <div className="product__name">Snoop D Oh Double G</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$150/mo</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img className="product__image" src="/static/product-02.jpg" />
+              <div className="product__info">
+                <div className="product__name">GTA XXX</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$125/mo</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img className="product__image" src="/static/curt-ice-01.jpg" />
+              <div className="product__info">
+                <div className="product__name">Chong's Choice</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125/mo</div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -98,27 +127,44 @@ class Shop extends Component {
             margin: 0;
           }
 
-          .product {
+          .products {
             margin-bottom: 1rem;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
           }
+
+          .product {
+            display: flex;
+            flex-direction: column;
+            width: calc(33.333333% - 1.33333rem);
+            margin: 2rem 2rem 1.5rem 0;
+            cursor: pointer;
+          }
+
+          .product:last-child {
+            margin-right: 0;
+          }
+
           .product__image {
-            width: calc(33.333333% - 0.6666rem);
-            margin-right: 1rem;
+            height: 350px;
+            object-fit: cover;
           }
           .product__image:last-child {
             margin: 0;
           }
 
           .product__info {
-            margin: 0 3.75rem;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
+            margin: 1rem 0;
+          }
+
+          .product__name {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+          }
+
+          .product__price {
+            font-weight: 700;
+            margin-top: 0.5rem;
           }
 
           .products--large {
@@ -138,4 +184,13 @@ class Shop extends Component {
   }
 }
 
-export default connect()(Shop);
+const mapStateToProps = state => ({
+  products: state.products,
+  showCart: state.showCart,
+  showProduct: state.showProduct
+});
+
+export default connect(
+  mapStateToProps,
+  { toggleCart, viewProduct }
+)(Subscribe);
