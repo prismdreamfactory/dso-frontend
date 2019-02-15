@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '../microcomponents/button';
 import ReactSVG from 'react-svg';
-import { toggleCart } from '../store';
+import { toggleCart, viewProduct } from '../store';
 
 class Home extends Component {
+  showProduct = () => {
+    this.props.viewProduct();
+  };
+
   render() {
     return (
       <div style={{ width: '100%' }}>
@@ -17,30 +21,40 @@ class Home extends Component {
                   Get a curated box monthly filled with certified DSO-grade
                   cannabis products delivered to you.
                 </p>
-                <Button label="Subscribe" alt href="/subscribe" />
+                <Button label="Subscribe" alt href="#subscribe" />
               </div>
             </section>
           </div>
         </div>
 
         <div className="brands">
-          <section className="brands__container">
+          <div className="brands__container">
             <div className="brands__logo">
-              <img src="/static/logo-jungleboys.png" />
+              <img src="/static/logo-jetfuel.jpg" />
+            </div>
+            <div className="brands__logo">
+              <img src="/static/logo-stizzy.png" />
             </div>
             <div className="brands__logo">
               <img src="/static/logo-jungleboys.png" />
             </div>
+            <div className="brands__logo" style={{ maxWidth: '125px' }}>
+              <img src="/static/logo-aficianado.png" />
+            </div>
+
             <div className="brands__logo">
-              <img src="/static/logo-jungleboys.png" />
+              <img src="/static/logo-queenofhearts.png" />
+            </div>
+            <div className="brands__logo" style={{ maxWidth: '150px' }}>
+              <img src="/static/logo-garrisonlane.png" />
             </div>
             <div className="brands__logo">
-              <img src="/static/logo-jungleboys.png" />
+              <img src="/static/logo-gorillabrand.png" />
             </div>
-          </section>
+          </div>
         </div>
 
-        <div className="section__title">
+        {/* <div className="section__title">
           <h2>How It Works</h2>
           <p>DSO Grade Strains A La Carte</p>
         </div>
@@ -64,65 +78,376 @@ class Home extends Component {
                 <p>Get it delivered.</p>
               </div>
             </div>
-
-            <Button label="Join" href="/subscribe" />
           </section>
-        </div>
+        </div> */}
+
+        <section id="subscribe">
+          <div className="section__title">
+            <h2>Monthly Subscriptions</h2>
+            <p>DSO Grade Strains Delivered Direct to Your Door</p>
+          </div>
+
+          <div className="products">
+            <div className="product" onClick={this.showProduct}>
+              <img className="product__image" src="/static/product-02.jpg" />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125/mo</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img className="product__image" src="/static/curt-ice-01.jpg" />
+              <div className="product__info">
+                <div className="product__name">Jet Fuel</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$200/mo</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img className="product__image" src="/static/product-02.jpg" />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$300/mo</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img className="product__image" src="/static/curt-ice-01.jpg" />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$400/mo</div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <section>
           <div className="section__title">
-            <h2>Featured</h2>
-            <p>DSO Grade Strains A La Carte</p>
+            <h2>Flower</h2>
+            <p>
+              The highest-quality bud. Grind it up, roll it, or pack into your
+              preferred smoking device.
+            </p>
           </div>
 
-          <div className="vid-grid">
-            <div className="vid-grid__row">
-              <video
-                src="/static/360-video-03.mp4"
-                autoPlay
-                muted
-                loop={true}
+          <div className="products">
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/concentrate-gotexcellence.jpg"
               />
-              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
-              <video
-                src="/static/360-video-03.mp4"
-                autoPlay
-                muted
-                loop={true}
-              />
-              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
-              <video
-                src="/static/360-video-03.mp4"
-                autoPlay
-                muted
-                loop={true}
-              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
             </div>
-            <div className="vid-grid__row">
-              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
-              <video
-                src="/static/360-video-03.mp4"
-                autoPlay
-                muted
-                loop={true}
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/concentrate-goldenleaf.jpg"
               />
-              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
-              <video
-                src="/static/360-video-03.mp4"
-                autoPlay
-                muted
-                loop={true}
+              <div className="product__info">
+                <div className="product__name">Jet Fuel</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/concentrate-03.jpg"
               />
-              <video src="/static/video-03.mp4" autoPlay muted loop={true} />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/concentrate-01.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$125</div>
+              </div>
             </div>
           </div>
+        </section>
 
-          <div className="products--large">
-            <div className="product--large">
-              <img src="/static/curt-ice-02.jpg" />
+        <section>
+          <div className="section__title">
+            <h2>Concentrates</h2>
+            <p>
+              Highly potent cannabis extracts — favored by advanced customers.
+            </p>
+          </div>
+
+          <div className="products">
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/concentrate-gotexcellence.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
             </div>
-            <div className="product--large">
-              <img src="/static/curt-ice-02.jpg" />
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/concentrate-goldenleaf.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Jet Fuel</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/concentrate-03.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/concentrate-01.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div className="section__title">
+            <h2>Edibles</h2>
+            <p>DSO Grade Strains</p>
+          </div>
+
+          <div className="products">
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/edibles-01.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/edibles-05.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Jet Fuel</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/edibles-04.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/edibles-03.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div className="section__title">
+            <h2>Vaporizer Cartridges</h2>
+            <p>Discreet and easy. Use with any 510-compatible battery.</p>
+          </div>
+
+          <div className="products">
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/vape-paris.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/vape-madre.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Jet Fuel</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/vape-king.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/vape-abx.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div className="section__title">
+            <h2>CBD</h2>
+            <p />
+          </div>
+
+          <div className="products">
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/cbd-koi.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/cbd-select-drops-lavender.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Jet Fuel</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/cbd-select.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/cbd-medterra.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">Medterra</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div className="section__title">
+            <h2>Glass & Accessories</h2>
+            <p>Tools, add-ons, and gear to help you enjoy the moment.</p>
+          </div>
+
+          <div className="products">
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/accessories-beta-bong.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/accessories-buck-quave-allosaurus-klein.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Jet Fuel</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/accessories-regenbogen.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/accessories-tetra.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name">Sundae Driver</div>
+                <div className="product__brand">303 Seeds</div>
+                <div className="product__price">$125</div>
+              </div>
             </div>
           </div>
         </section>
@@ -153,7 +478,7 @@ class Home extends Component {
           .brands {
             width: 100%;
             padding: 1rem 0;
-            // background: #000;
+            background: #000;
             border-bottom: 1px solid #ccc;
           }
 
@@ -207,27 +532,44 @@ class Home extends Component {
             margin: 0;
           }
 
-          .product {
+          .products {
             margin-bottom: 1rem;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
           }
+
+          .product {
+            display: flex;
+            flex-direction: column;
+            width: calc(25% - 1.125rem);
+            margin: 2rem 1.5rem 1.5rem 0;
+            cursor: pointer;
+          }
+
+          .product:last-child {
+            margin-right: 0;
+          }
+
           .product__image {
-            width: calc(33.333333% - 0.6666rem);
-            margin-right: 1rem;
+            height: 250px;
+            object-fit: cover;
           }
           .product__image:last-child {
             margin: 0;
           }
 
           .product__info {
-            margin: 0 3.75rem;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
+            margin: 1rem 0;
+          }
+
+          .product__name {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+          }
+
+          .product__price {
+            font-weight: 700;
+            margin-top: 0.5rem;
           }
 
           .products--large {
@@ -250,6 +592,25 @@ class Home extends Component {
             .how__items {
               display: block;
             }
+
+            .brands__container {
+              flex-direction: column;
+            }
+            .brands__logo {
+              margin-bottom: 0.5rem;
+            }
+            .vid-grid {
+              display: none;
+            }
+
+            .product {
+              width: 100%;
+              margin-right: 1rem;
+            }
+
+            .product__image {
+              height: 150px;
+            }
           }
         `}</style>
       </div>
@@ -257,7 +618,11 @@ class Home extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  products: state.products
+});
+
 export default connect(
-  '',
-  { toggleCart }
+  mapStateToProps,
+  { toggleCart, viewProduct }
 )(Home);
