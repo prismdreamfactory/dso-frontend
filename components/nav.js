@@ -12,18 +12,40 @@ import ReactSVG from 'react-svg';
 // });
 
 class Nav extends Component {
+  state = {
+    currentScrollHeight: 0
+  };
+
+  componentDidMount() {
+    this.setState({
+      currentScrollHeight: window.scrollY
+    });
+
+    window.onscroll = () => {
+      const newScrollHeight = Math.ceil(window.scrollY / 25) * 25;
+
+      if (this.state.currentScrollHeight != newScrollHeight) {
+        this.setState({
+          currentScrollHeight: newScrollHeight
+        });
+      }
+    };
+  }
+
   showCart = () => {
     this.props.toggleCart();
   };
 
   render() {
+    const opacity = Math.min(this.state.currentScrollHeight / 100, 1);
+
     return (
-      <nav className="header">
+      <nav
+        style={{ backgroundColor: `rgba(0,0,0, ${opacity})` }}
+        className="header"
+      >
         <div className="header--left">
           <div className="header__group">
-            <Link href="/subscribe">
-              <a className="header__link">Join</a>
-            </Link>
             <a className="header__link">
               <ReactSVG
                 src="/static/icons/_ionicons_svg_md-search.svg"
@@ -43,9 +65,6 @@ class Nav extends Component {
 
         <div className="header--right">
           <div className="header__group">
-            <Link href="/shop">
-              <a className="header__link">Shop</a>
-            </Link>
             <a className="header__link">
               <ReactSVG
                 src="/static/icons/_ionicons_svg_md-person.svg"
@@ -74,8 +93,8 @@ class Nav extends Component {
             align-items: center;
             // padding: 0 1.875rem;
 
-            position: absolute;
-            // position: fixed;
+            // position: absolute;
+            position: fixed;
             width: 100%;
             z-index: 1;
             color: #fff;
