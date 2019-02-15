@@ -12,7 +12,6 @@ class MyApp extends App {
         <Provider store={reduxStore}>
           <div id="main">
             <Component {...pageProps} />
-
             <style jsx global>{`
               #main {
               }
@@ -87,8 +86,8 @@ class MyApp extends App {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: center;
-                margin: 1.875rem 0;
+                align-items: flex-start;
+                margin: 1.875rem 0 0 0;
               }
               .section__title h2 {
                 font-family: 'Playfair Display';
