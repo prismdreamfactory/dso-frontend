@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Nav from '../components/nav';
 import Layout from '../components/layout';
 import Home from '../components/home';
 import Cart from '../components/cart';
 import Product from '../components/product';
 
+import products from '../products.json';
+
 class Index extends Component {
-  static getInitialProps({ reduxStore, req }) {
+  static async getInitialProps({ reduxStore, req }) {
     const isServer = !!req;
 
-    return {};
+    return {
+      products
+    };
   }
 
   render() {
     return (
-      <Layout>
-        <Home />
-        {this.props.showCart && <Cart />}
-        {this.props.showProduct && <Product />}
-      </Layout>
+      <div>
+        <Nav />
+
+        <Layout>
+          <Home {...this.props.products} />
+          {this.props.showCart && <Cart />}
+          {this.props.showProduct && <Product />}
+        </Layout>
+      </div>
     );
   }
 }

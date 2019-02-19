@@ -2,11 +2,9 @@ import React, { PureComponent } from 'react';
 import Link from 'next/link';
 
 class Button extends PureComponent {
-  handleClick = () => {};
-
   render() {
     return (
-      <Link href={this.props.href || ''}>
+      <Link href={this.props.href || ''} as={this.props.as}>
         <button
           onClick={this.props.handleClick}
           className={this.props.alt ? 'alt' : ''}
@@ -19,7 +17,7 @@ class Button extends PureComponent {
               cursor: pointer;
               display: inline-flex;
               justify-content: center;
-              height: 3rem;
+              height: 2.75rem;
               border-radius: 1.5rem;
               font-size: 0.9375rem;
               line-height: 1.0625rem;

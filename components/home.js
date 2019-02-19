@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '../microcomponents/button';
-import ReactSVG from 'react-svg';
+import Link from 'next/link';
 import { toggleCart, viewProduct } from '../store';
 
 class Home extends Component {
@@ -38,15 +38,21 @@ class Home extends Component {
             <div className="brands__logo">
               <img src="/static/logo-jungleboys.png" />
             </div>
-            <div className="brands__logo" style={{ maxWidth: '125px' }}>
-              <img src="/static/logo-aficianado.png" />
+            <div className="brands__logo">
+              <img
+                src="/static/logo-aficianado.png"
+                style={{ width: '150px' }}
+              />
             </div>
 
             <div className="brands__logo">
               <img src="/static/logo-queenofhearts.png" />
             </div>
-            <div className="brands__logo" style={{ maxWidth: '150px' }}>
-              <img src="/static/logo-garrisonlane.png" />
+            <div className="brands__logo">
+              <img
+                src="/static/logo-garrisonlane.png"
+                style={{ width: '150px' }}
+              />
             </div>
             <div className="brands__logo">
               <img src="/static/logo-gorillabrand.png" />
@@ -83,37 +89,37 @@ class Home extends Component {
 
         <section id="subscribe">
           <div className="section__title">
-            <h2>Monthly Subscriptions</h2>
+            <h2>Monthly Subscription Box</h2>
             <p>DSO Grade Strains Delivered Direct to Your Door</p>
           </div>
 
           <div className="products">
             <div className="product" onClick={this.showProduct}>
-              <img className="product__image" src="/static/product-02.jpg" />
+              <img className="product__image" src="/static/box-05.jpg" />
               <div className="product__info">
-                <div className="product__name">Sundae Driver</div>
-                <div className="product__brand">Jungle Boys</div>
+                <div className="product__name">Snoop's Choice</div>
+                <div className="product__brand">By Snoop Dogg</div>
                 <div className="product__price">$125/mo</div>
               </div>
             </div>
             <div className="product" onClick={this.showProduct}>
-              <img className="product__image" src="/static/curt-ice-01.jpg" />
+              <img className="product__image" src="/static/box-06.jpg" />
               <div className="product__info">
-                <div className="product__name">Jet Fuel</div>
-                <div className="product__brand">Jungle Boys</div>
+                <div className="product__name">Chong's Choice</div>
+                <div className="product__brand">By Chong</div>
                 <div className="product__price">$200/mo</div>
               </div>
             </div>
             <div className="product" onClick={this.showProduct}>
-              <img className="product__image" src="/static/product-02.jpg" />
+              <img className="product__image" src="/static/box-04.jpg" />
               <div className="product__info">
-                <div className="product__name">Sundae Driver</div>
+                <div className="product__name">Garrison Lanes Top Shelf</div>
                 <div className="product__brand">303 Seeds</div>
                 <div className="product__price">$300/mo</div>
               </div>
             </div>
             <div className="product" onClick={this.showProduct}>
-              <img className="product__image" src="/static/curt-ice-01.jpg" />
+              <img className="product__image" src="/static/box-03.jpg" />
               <div className="product__info">
                 <div className="product__name">Sundae Driver</div>
                 <div className="product__brand">303 Seeds</div>
@@ -124,12 +130,17 @@ class Home extends Component {
         </section>
 
         <section>
-          <div className="section__title">
-            <h2>Flower</h2>
-            <p>
-              The highest-quality bud. Grind it up, roll it, or pack into your
-              preferred smoking device.
-            </p>
+          <div className="section__title section__title--more">
+            <div>
+              <h2>Flower</h2>
+              <p>
+                The highest-quality bud. Grind it up, roll it, or pack into your
+                preferred smoking device.
+              </p>
+            </div>
+            <div>
+              <Button label="See More" href="/collection/flower" />
+            </div>
           </div>
 
           <div className="products">
@@ -137,6 +148,63 @@ class Home extends Component {
               <img
                 className="product__image"
                 src="/static/products/concentrate-gotexcellence.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name strain--indica">Cherry Pie</div>
+                <div className="product__brand">Got Excellence</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img className="product__image" src="/static/product-01.jpg" />
+              <div className="product__info">
+                <div className="product__name strain--hybrid">Jet Fuel</div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/concentrate-queenofhearts.jpg"
+              />
+              <div className="product__info">
+                <div className="product__name strain--sativa">Gorilla Glue</div>
+                <div className="product__brand">420 Queen of Hearts</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+            <div className="product" onClick={this.showProduct}>
+              <img className="product__image" src="/static/curt-ice-01.jpg" />
+              <div className="product__info">
+                <div className="product__name strain--indica">
+                  Sundae Driver
+                </div>
+                <div className="product__brand">Jungle Boys</div>
+                <div className="product__price">$125</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div className="section__title section__title--more">
+            <div>
+              <h2>Concentrates</h2>
+              <p>
+                Highly potent cannabis extracts — favored by advanced customers.
+              </p>
+            </div>
+            <div>
+              <Button label="See More" href="/collection/flower" />
+            </div>
+          </div>
+
+          <div className="products">
+            <div className="product" onClick={this.showProduct}>
+              <img
+                className="product__image"
+                src="/static/products/concentrate-02.jpg"
               />
               <div className="product__info">
                 <div className="product__name">Sundae Driver</div>
@@ -150,8 +218,10 @@ class Home extends Component {
                 src="/static/products/concentrate-goldenleaf.jpg"
               />
               <div className="product__info">
-                <div className="product__name">Jet Fuel</div>
-                <div className="product__brand">Jungle Boys</div>
+                <div className="product__name strain--indica">
+                  Shatter OG Kush
+                </div>
+                <div className="product__brand">Golden Leaf Scientifics</div>
                 <div className="product__price">$125</div>
               </div>
             </div>
@@ -181,65 +251,14 @@ class Home extends Component {
         </section>
 
         <section>
-          <div className="section__title">
-            <h2>Concentrates</h2>
-            <p>
-              Highly potent cannabis extracts — favored by advanced customers.
-            </p>
-          </div>
-
-          <div className="products">
-            <div className="product" onClick={this.showProduct}>
-              <img
-                className="product__image"
-                src="/static/products/concentrate-gotexcellence.jpg"
-              />
-              <div className="product__info">
-                <div className="product__name">Sundae Driver</div>
-                <div className="product__brand">Jungle Boys</div>
-                <div className="product__price">$125</div>
-              </div>
+          <div className="section__title section__title--more">
+            <div>
+              <h2>Edibles</h2>
+              <p>DSO Grade Strains</p>
             </div>
-            <div className="product" onClick={this.showProduct}>
-              <img
-                className="product__image"
-                src="/static/products/concentrate-goldenleaf.jpg"
-              />
-              <div className="product__info">
-                <div className="product__name">Jet Fuel</div>
-                <div className="product__brand">Jungle Boys</div>
-                <div className="product__price">$125</div>
-              </div>
+            <div>
+              <Button label="See More" href="/collection/flower" />
             </div>
-            <div className="product" onClick={this.showProduct}>
-              <img
-                className="product__image"
-                src="/static/products/concentrate-03.jpg"
-              />
-              <div className="product__info">
-                <div className="product__name">Sundae Driver</div>
-                <div className="product__brand">303 Seeds</div>
-                <div className="product__price">$125</div>
-              </div>
-            </div>
-            <div className="product" onClick={this.showProduct}>
-              <img
-                className="product__image"
-                src="/static/products/concentrate-01.jpg"
-              />
-              <div className="product__info">
-                <div className="product__name">Sundae Driver</div>
-                <div className="product__brand">303 Seeds</div>
-                <div className="product__price">$125</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <div className="section__title">
-            <h2>Edibles</h2>
-            <p>DSO Grade Strains</p>
           </div>
 
           <div className="products">
@@ -291,9 +310,14 @@ class Home extends Component {
         </section>
 
         <section>
-          <div className="section__title">
-            <h2>Vaporizer Cartridges</h2>
-            <p>Discreet and easy. Use with any 510-compatible battery.</p>
+          <div className="section__title section__title--more">
+            <div>
+              <h2>Vaporizer Cartridges</h2>
+              <p>Discreet and easy. Use with any 510-compatible battery.</p>
+            </div>
+            <div>
+              <Button label="See More" href="/collection/flower" />
+            </div>
           </div>
 
           <div className="products">
@@ -345,9 +369,14 @@ class Home extends Component {
         </section>
 
         <section>
-          <div className="section__title">
-            <h2>CBD</h2>
-            <p />
+          <div className="section__title section__title--more">
+            <div>
+              <h2>CBD</h2>
+              <p />
+            </div>
+            <div>
+              <Button label="See More" href="/collection/flower" />
+            </div>
           </div>
 
           <div className="products">
@@ -399,9 +428,14 @@ class Home extends Component {
         </section>
 
         <section>
-          <div className="section__title">
-            <h2>Glass & Accessories</h2>
-            <p>Tools, add-ons, and gear to help you enjoy the moment.</p>
+          <div className="section__title section__title--more">
+            <div className="section__title">
+              <h2>Glass & Accessories</h2>
+              <p>Tools, add-ons, and gear to help you enjoy the moment.</p>
+            </div>
+            <div>
+              <Button label="See More" href="/collection/flower" />
+            </div>
           </div>
 
           <div className="products">
@@ -457,6 +491,7 @@ class Home extends Component {
             display: flex;
             width: 100%;
             height: 450px;
+            // height: calc(100vh - 100px);
             position: relative;
           }
 
@@ -477,9 +512,12 @@ class Home extends Component {
 
           .brands {
             width: 100%;
-            padding: 1rem 0;
             background: #000;
             border-bottom: 1px solid #ccc;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
           }
 
           .brands__container {
@@ -489,7 +527,10 @@ class Home extends Component {
             align-items: center;
           }
           .brands__logo {
-            max-width: 75px;
+            max-width: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
 
           .how__container {
@@ -554,6 +595,7 @@ class Home extends Component {
             height: 250px;
             object-fit: cover;
           }
+
           .product__image:last-child {
             margin: 0;
           }
@@ -563,11 +605,17 @@ class Home extends Component {
           }
 
           .product__name {
+            // color: #fff;
             font-weight: 700;
             margin-bottom: 0.25rem;
           }
 
+          .product__brand {
+            // color: #fff;
+          }
+
           .product__price {
+            // color: #fff;
             font-weight: 700;
             margin-top: 0.5rem;
           }
@@ -618,9 +666,7 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  products: state.products
-});
+const mapStateToProps = state => ({});
 
 export default connect(
   mapStateToProps,

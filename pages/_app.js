@@ -93,6 +93,21 @@ class MyApp extends App {
                 font-family: 'Playfair Display';
                 margin-bottom: 0;
               }
+              .section__title--more {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+              }
+
+              .strain--indica {
+                color: rgb(18, 108, 171);
+              }
+              .strain--sativa {
+                color: rgb(250, 202, 24);
+              }
+              .strain--hybrid {
+                color: rgb(66, 188, 151);
+              }
             `}</style>
           </div>
         </Provider>

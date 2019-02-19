@@ -47,10 +47,18 @@ class Nav extends Component {
         <div className="header--left">
           <div className="header__group">
             <a className="header__link">
-              <ReactSVG
+              {/* <ReactSVG
                 src="/static/icons/_ionicons_svg_md-search.svg"
                 svgStyle={{ width: '20px', fill: '#fff' }}
-              />
+              /> */}
+
+              {this.props.goBack ? (
+                <Link href="/">
+                  <div>Go back</div>
+                </Link>
+              ) : (
+                ''
+              )}
             </a>
           </div>
         </div>

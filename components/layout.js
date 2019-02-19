@@ -21,8 +21,6 @@ export default ({ children }) => (
       />
     </Head>
 
-    <Nav />
-
     <div className="container">{children}</div>
 
     <footer>

@@ -2,27 +2,55 @@ import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const initialState = {
+  collections: ['flower', 'concentrates', 'pre-rolls'],
   products: [
     {
-      name: 'My first product',
-      price: 50,
-      description: 'I like turtles',
-      image: 'url',
-      id: 1
+      id: 1,
+      name: "Snoop's Choice",
+      brand: 'Snoop',
+      price: 125,
+      type: 'indica',
+      image: '/static/products/concentrate-gotexcellence.jpg'
     },
     {
-      name: 'My second product',
-      price: 100,
-      description: 'I like zonks',
-      image: 'url',
-      id: 2
+      id: 2,
+      name: "Chong's Choice",
+      brand: 'Chong',
+      price: 125,
+      type: 'sativa',
+      image: '/static/products/concentrate-goldenleaf.jpg'
     },
     {
-      name: 'My third product',
-      price: 150,
-      description: 'I like dragons',
-      image: 'url',
-      id: 3
+      id: 3,
+      name: 'Garrison Lanes Top Shelf',
+      brand: 'Garrison Lane',
+      price: 125,
+      type: 'hybrid',
+      image: '/static/products/concentrate-queenofhearts.jpg'
+    },
+    {
+      id: 4,
+      name: 'Jungle Boys Only',
+      brand: 'Jungle Boys',
+      price: 125,
+      type: 'sativa',
+      image: '/static/curt-ice-01.jpg'
+    },
+    {
+      id: 5,
+      name: "Snoop's Choice",
+      brand: 'Snoop',
+      price: 125,
+      type: 'indica',
+      image: '/static/products/concentrate-gotexcellence.jpg'
+    },
+    {
+      id: 6,
+      name: "Chong's Choice",
+      brand: 'Chong',
+      price: 125,
+      type: 'sativa',
+      image: '/static/products/concentrate-01.jpg'
     }
   ],
   showCart: false,
