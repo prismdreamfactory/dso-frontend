@@ -10,9 +10,7 @@ class Index extends Component {
   static async getInitialProps({ reduxStore, req }) {
     const isServer = !!req;
 
-    return {
-      products
-    };
+    return {};
   }
 
   render() {
