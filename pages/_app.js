@@ -14,6 +14,7 @@ class MyApp extends App {
             <Component {...pageProps} />
             <style jsx global>{`
               #main {
+                background-image: url(https://stylehouserentals.com/wp-content/uploads/2018/11/white-marble-2.jpg);
               }
 
               body {

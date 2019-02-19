@@ -26,6 +26,8 @@ class Button extends PureComponent {
               width: 100%;
               max-width: 250px;
               transition: 0.1s;
+              // background-image: url(https://images.pexels.com/photos/908283/pexels-photo-908283.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
+              // color: #fff;
             }
 
             button.alt {

@@ -16,7 +16,7 @@ class Collection extends Component {
 
   render = () => (
     <div>
-      <Nav goBack={true} />
+      <Nav goBack={true} alt />
 
       <Layout>
         <Head>

@@ -38,12 +38,19 @@ class Nav extends Component {
 
   render() {
     const opacity = Math.min(this.state.currentScrollHeight / 100, 1);
+    const svgStyle =
+      this.state.currentScrollHeight > 50 || this.props.alt
+        ? { width: '20px', fill: '#fff' }
+        : { width: '20px', fill: '#000' };
+    const color =
+      this.state.currentScrollHeight > 50 || this.props.alt
+        ? { color: '#fff' }
+        : { color: '#000' };
 
     return (
-      <nav
-        style={{ backgroundColor: `rgba(0,0,0, ${opacity})` }}
-        className="header"
-      >
+      <nav className="header">
+        <div className="texture" style={{ opacity }} />
+
         <div className="header--left">
           <div className="header__group">
             <a className="header__link">
@@ -54,7 +61,7 @@ class Nav extends Component {
 
               {this.props.goBack ? (
                 <Link href="/">
-                  <div>Go back</div>
+                  <div style={color}>Go back</div>
                 </Link>
               ) : (
                 ''
@@ -65,7 +72,7 @@ class Nav extends Component {
 
         <div className="header--center">
           <Link prefetch href="/">
-            <h1>
+            <h1 style={color}>
               <a className="logo">Designer Strains Only</a>
             </h1>
           </Link>
@@ -76,13 +83,13 @@ class Nav extends Component {
             <a className="header__link">
               <ReactSVG
                 src="/static/icons/_ionicons_svg_md-person.svg"
-                svgStyle={{ width: '20px', fill: '#fff' }}
+                svgStyle={svgStyle}
               />
             </a>
             <a onClick={this.showCart} className="header__link">
               <ReactSVG
                 src="/static/icons/_ionicons_svg_ios-cart.svg"
-                svgStyle={{ width: '20px', fill: '#fff' }}
+                svgStyle={svgStyle}
               />
             </a>
           </div>
@@ -95,6 +102,10 @@ class Nav extends Component {
         </div>
 
         <style jsx>{`
+          h1 {
+            margin: 0.75rem 0;
+          }
+
           nav {
             display: flex;
             justify-content: center;
@@ -105,8 +116,21 @@ class Nav extends Component {
             position: fixed;
             width: 100%;
             z-index: 1;
-            color: #fff;
+            color: #000;
             // background: #fff;
+            background-size: cover;
+          }
+
+          .texture {
+            // background-image: url(https://images.pexels.com/photos/908283/pexels-photo-908283.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+            background: #000;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
           }
 
           .logo {

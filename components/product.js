@@ -48,7 +48,9 @@ class Product extends Component {
               <div className="menu__description">
                 <div className="menu__content">
                   <div className="product__info">
-                    <h2 className="product__name">Sundae Driver</h2>
+                    <h2 className="product__name strain--indica">
+                      Sundae Driver
+                    </h2>
                     <div className="product__brand">Jungle Boys</div>
                     <div className="product__price">$125</div>
                   </div>
@@ -109,6 +111,7 @@ class Product extends Component {
                 border-top-right-radius: 0.34rem;
                 outline: none;
                 background: #fff;
+                background: url(https://stylehouserentals.com/wp-content/uploads/2018/11/white-marble-2.jpg);
                 transition: 0.1s ease;
               }
 
@@ -132,7 +135,7 @@ class Product extends Component {
                 pointer-events: none;
                 width: 50%;
                 height: 100%;
-                background: #fff;
+                // background: #fff;
                 display: flex;
                 justify-content: center;
                 text-align: center;

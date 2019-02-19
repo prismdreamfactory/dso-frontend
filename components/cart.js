@@ -120,6 +120,7 @@ class Cart extends Component {
                 background-color: rgb(255, 255, 255);
                 border-radius: 0.4rem;
                 padding: 1rem 4rem 0;
+                background: url(https://stylehouserentals.com/wp-content/uploads/2018/11/white-marble-2.jpg);
                 transition: 0.1s ease;
               }
 
