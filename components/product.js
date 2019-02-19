@@ -74,7 +74,7 @@ class Product extends Component {
               </div>
 
               <div className="menu__product">
-                <div className="menu__content">
+                <div className="menu__content--product">
                   <img
                     className="product__image"
                     src="/static/curt-ice-01.jpg"
@@ -128,14 +128,20 @@ class Product extends Component {
                 align-items: flex-start;
               }
 
+              .menu__content--product {
+                padding: 4rem 3rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+              }
+
               .menu__product {
                 position: absolute;
                 top: 0;
                 right: 0;
-                pointer-events: none;
                 width: 50%;
                 height: 100%;
-                // background: #fff;
+                background: rgba(110, 51, 94, 0.85);
                 display: flex;
                 justify-content: center;
                 text-align: center;
@@ -161,7 +167,7 @@ class Product extends Component {
                 position: absolute;
                 top: 0;
                 right: 0;
-                padding: 2rem;
+                padding: 1.5rem;
                 cursor: pointer;
                 z-index: 1;
               }

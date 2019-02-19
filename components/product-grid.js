@@ -111,27 +111,27 @@ const ProductGrid = products => {
           }
 
           .strain--indica {
-            color: rgb(18, 108, 171);
-            border-color: rgb(18, 108, 171);
+            color: rgb(110, 51, 94);
+            border-color: rgb(110, 51, 94);
           }
           .strain--indica:hover {
-            background-color: rgb(18, 108, 171);
+            background-color: rgb(110, 51, 94);
             color: #fff;
           }
           .strain--sativa {
-            color: rgb(250, 202, 24);
-            border-color: rgb(250, 202, 24);
+            color: rgb(212, 71, 39);
+            border-color: rgb(212, 71, 39);
           }
           .strain--sativa:hover {
-            background-color: rgb(250, 202, 24);
+            background-color: rgb(212, 71, 39);
             color: #fff;
           }
           .strain--hybrid {
-            color: rgb(66, 188, 151);
-            border-color: rgb(66, 188, 151);
+            color: rgb(118, 189, 29);
+            border-color: rgb(118, 189, 29);
           }
           .strain--hybrid:hover {
-            background-color: rgb(66, 188, 151);
+            background-color: rgb(118, 189, 29);
             color: #fff;
           }
 

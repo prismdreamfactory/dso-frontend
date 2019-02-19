@@ -101,10 +101,10 @@ class MyApp extends App {
               }
 
               .strain--indica {
-                color: rgb(18, 108, 171);
+                color: rgb(110, 51, 94);
               }
               .strain--sativa {
-                color: rgb(250, 202, 24);
+                color: rgb(212, 71, 39);
               }
               .strain--hybrid {
                 color: rgb(66, 188, 151);

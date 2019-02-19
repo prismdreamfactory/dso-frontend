@@ -6,8 +6,6 @@ import Home from '../components/home';
 import Cart from '../components/cart';
 import Product from '../components/product';
 
-import products from '../products.json';
-
 class Index extends Component {
   static async getInitialProps({ reduxStore, req }) {
     const isServer = !!req;
