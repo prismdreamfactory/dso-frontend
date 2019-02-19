@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '../microcomponents/button';
+import { Link as ScrollLink, Element } from 'react-scroll';
 import Link from 'next/link';
 import { toggleCart, viewProduct } from '../store';
 
@@ -21,7 +22,16 @@ class Home extends Component {
                   Get a curated box monthly filled with certified DSO-grade
                   cannabis products delivered to you.
                 </p>
-                <Button label="Subscribe" alt href="#subscribe" />
+                <ScrollLink
+                  activeClass="active"
+                  to="subscribe"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={500}
+                >
+                  <Button label="Subscribe" alt />
+                </ScrollLink>
               </div>
             </section>
           </div>
@@ -31,9 +41,6 @@ class Home extends Component {
           <div className="brands__container">
             <div className="brands__logo">
               <img src="/static/logo-jetfuel.jpg" />
-            </div>
-            <div className="brands__logo">
-              <img src="/static/logo-stizzy.png" />
             </div>
             <div className="brands__logo">
               <img src="/static/logo-jungleboys.png" />
@@ -88,10 +95,12 @@ class Home extends Component {
         </div> */}
 
         <section id="subscribe">
-          <div className="section__title">
-            <h2>Monthly Subscription Box</h2>
-            <p>DSO Grade Strains Delivered Direct to Your Door</p>
-          </div>
+          <Element name="subscribe">
+            <div className="section__title">
+              <h2>Monthly Subscription Box</h2>
+              <p>DSO Grade Strains Delivered Direct to Your Door</p>
+            </div>
+          </Element>
 
           <div className="products">
             <div className="product" onClick={this.showProduct}>
@@ -507,7 +516,6 @@ class Home extends Component {
           .hero__description {
             color: #fff;
             max-width: 40%;
-            padding: 0 2rem;
           }
 
           .brands {
