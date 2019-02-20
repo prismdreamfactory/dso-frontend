@@ -16,8 +16,12 @@ class ProductCell extends Component {
   render() {
     const { image, type, name, brand, price } = this.props;
 
+    const gridStyle = this.props.gridStyle && {
+      flex: '1 0 calc(30% - 1.125rem)'
+    };
+
     return (
-      <div className="product" onClick={this.showProduct}>
+      <div className="product" style={gridStyle} onClick={this.showProduct}>
         <div className="product__image">
           {this.props.video ? (
             <video src={`/static/${image}`} autoPlay muted loop={true} />
@@ -36,7 +40,9 @@ class ProductCell extends Component {
         </div>
 
         <div className="product__info">
-          <div className={`product__name strain--${type}`}>{name}</div>
+          <div className={`product__name strain--${type.toLowerCase()}`}>
+            {name}
+          </div>
           <div className="product__brand">{brand}</div>
           <div className="product__price">{price}</div>
         </div>
@@ -48,7 +54,6 @@ class ProductCell extends Component {
             width: calc(25% - 1.125rem);
             margin: 2rem 1.5rem 1.5rem 0;
             cursor: pointer;
-            // flex: 1 0 calc(25% - 1.125rem);
           }
 
           .product:last-child {

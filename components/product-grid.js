@@ -31,9 +31,11 @@ const ProductGrid = products => {
         </div>
 
         <div className="products">
-          {Object.values(products).map(props => (
-            <ProductCell key={props.id} {...props} />
-          ))}
+          {Object.values(products)
+            .filter(product => product.category === 4)
+            .map(props => (
+              <ProductCell key={props.id} {...props} gridStyle />
+            ))}
         </div>
       </div>
 

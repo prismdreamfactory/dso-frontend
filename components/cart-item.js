@@ -4,7 +4,11 @@ export default props => (
   <div className="cart__row">
     <div className="cart__description">
       <div className="cart__product-thumb">
-        <img src="http://placehold.it/100x100?text=+" />
+        {props.image.split('.').pop() === 'mp4' ? (
+          <video src={`/static/${props.image}`} autoPlay muted loop={true} />
+        ) : (
+          <img src={`/static/products/${props.image}`} />
+        )}
       </div>
       <div className="cart__product-name">
         <p className={`strain--${props.type}`}>
@@ -36,6 +40,10 @@ export default props => (
     </div>
 
     <style jsx>{`
+      video {
+        width: 100%;
+      }
+
       p {
         margin: 0;
       }
@@ -53,6 +61,10 @@ export default props => (
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+
+      .cart__product-thumb {
+        max-width: 150px;
       }
 
       .cart__product-name {

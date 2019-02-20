@@ -6,10 +6,6 @@ import ProductCell from '../components/product-cell';
 import { toggleCart, viewProduct, fetchProducts } from '../store';
 
 class Home extends Component {
-  componentDidMount() {
-    this.props.fetchProducts();
-  }
-
   showProduct = () => {
     this.props.viewProduct();
   };

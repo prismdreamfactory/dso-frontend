@@ -6,10 +6,14 @@ import Cart from '../components/cart';
 import ProductGrid from '../components/product-grid';
 import Product from '../components/product';
 import Head from 'next/head';
-import Link from 'next/link';
+import { fetchProducts } from '../store';
 
 class Collection extends Component {
   static getInitialProps = ({ query, page }) => ({ name: query.name, page });
+
+  componentDidMount() {
+    this.props.fetchProducts();
+  }
 
   getCollection = () =>
     this.props.collections.filter(x => x === this.props.name);
@@ -37,4 +41,7 @@ const mapStateToProps = state => ({
   showProduct: state.showProduct
 });
 
-export default connect(mapStateToProps)(Collection);
+export default connect(
+  mapStateToProps,
+  { fetchProducts }
+)(Collection);

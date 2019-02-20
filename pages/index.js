@@ -5,12 +5,17 @@ import Layout from '../components/layout';
 import Home from '../components/home';
 import Cart from '../components/cart';
 import Product from '../components/product';
+import { fetchProducts } from '../store';
 
 class Index extends Component {
   static async getInitialProps({ reduxStore, req }) {
     const isServer = !!req;
 
     return {};
+  }
+
+  componentDidMount() {
+    this.props.fetchProducts();
   }
 
   render() {
@@ -33,4 +38,7 @@ const mapStateToProps = state => ({
   showProduct: state.showProduct
 });
 
-export default connect(mapStateToProps)(Index);
+export default connect(
+  mapStateToProps,
+  { fetchProducts }
+)(Index);
