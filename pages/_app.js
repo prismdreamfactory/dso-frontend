@@ -23,7 +23,6 @@ class MyApp extends App {
                 src: url('/static/fonts/Garamonb.eot');
                 src: url('/static/fonts/Garamonb.eot?#iefix')
                     format('embedded-opentype'),
-                  url('/static/fonts/Garamonb.woff2') format('woff2'),
                   url('/static/fonts/Garamonb.woff') format('woff'),
                   url('/static/fonts/Garamonb.ttf') format('truetype'),
                   url('/static/fonts/Garamonb.svg#svgFontName') format('svg');
