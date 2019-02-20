@@ -70,6 +70,14 @@ export default props => (
       .cart__controls-item {
         margin-left: 2rem;
       }
+
+      .controls__delete {
+        cursor: pointer;
+      }
+
+      .controls__delete {
+        cursor: pointer;
+      }
     `}</style>
   </div>
 );

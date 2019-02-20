@@ -121,7 +121,7 @@ class Cart extends Component {
 
               .cart-container {
                 border-top: 1px solid #ccc;
-                overflow-y: scroll;
+                overflow-y: auto;
                 justify-content: flex-start;
                 height: calc(100vh - 20rem);
                 padding: 0 2rem 0 0;

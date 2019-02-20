@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { toggleCart } from '../store';
 import Link from 'next/link';
 import ReactSVG from 'react-svg';
+import cart from './cart';
 
 // const links = [
 //   { href: '/search', label: 'Search' }
@@ -37,11 +38,12 @@ class Nav extends Component {
   };
 
   render() {
+    const { cart } = this.props;
     const opacity = Math.min(this.state.currentScrollHeight / 100, 1);
     const svgStyle =
       this.state.currentScrollHeight > 50 || this.props.alt
-        ? { width: '20px', fill: '#fff' }
-        : { width: '20px', fill: '#000' };
+        ? { width: '1.4rem', fill: '#fff' }
+        : { width: '1.4rem', fill: '#000' };
     const color =
       this.state.currentScrollHeight > 50 || this.props.alt
         ? { color: '#fff' }
@@ -59,7 +61,7 @@ class Nav extends Component {
                 svgStyle={{ width: '20px', fill: '#fff' }}
               /> */}
 
-              {this.props.goBack ? (
+              {this.props.goBack && (
                 <Link href="/">
                   <div style={color}>
                     <ReactSVG
@@ -68,8 +70,6 @@ class Nav extends Component {
                     />
                   </div>
                 </Link>
-              ) : (
-                ''
               )}
             </a>
           </div>
@@ -96,6 +96,9 @@ class Nav extends Component {
                 src="/static/icons/_ionicons_svg_ios-cart.svg"
                 svgStyle={svgStyle}
               />
+              {cart.length > 0 && (
+                <div className="cart__amount">{cart.length}</div>
+              )}
             </a>
           </div>
         </div>
@@ -115,7 +118,6 @@ class Nav extends Component {
             display: flex;
             justify-content: center;
             align-items: center;
-            // padding: 0 1.875rem;
 
             // position: absolute;
             position: fixed;
@@ -149,11 +151,11 @@ class Nav extends Component {
           .header--right {
             flex: 1;
             display: flex;
-            padding-left: 1.875rem;
+            padding-left: 2.5rem;
           }
           .header--right {
             justify-content: flex-end;
-            padding: 0 1.875rem 0 0;
+            padding: 0 2.5rem 0 0;
           }
           .header__group {
             display: flex;
@@ -161,6 +163,7 @@ class Nav extends Component {
           }
           .header__link {
             margin-left: 1.875rem;
+            position: relative;
           }
           .header__link:first-child {
             margin: 0;
@@ -168,6 +171,23 @@ class Nav extends Component {
 
           .mobile-nav {
             display: hidden;
+          }
+
+          .cart__amount {
+            position: absolute;
+            top: -0.9rem;
+            right: -1.1rem;
+            background-color: rgb(240, 91, 75);
+            color: white;
+            font-size: 1rem;
+            box-sizing: content-box;
+            height: 1rem;
+            width: 1rem;
+            line-height: 1rem;
+            border-radius: 1rem;
+            padding: 0.3rem;
+            display: flex;
+            justify-content: center;
           }
 
           @media (max-width: 768px) {
@@ -235,7 +255,10 @@ class Nav extends Component {
   }
 }
 
-const mapStateToProps = state => ({ products: state.products });
+const mapStateToProps = state => ({
+  products: state.products,
+  cart: state.cart
+});
 
 export default connect(
   mapStateToProps,
