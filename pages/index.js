@@ -16,7 +16,7 @@ class Index extends Component {
   render() {
     return (
       <div>
-        <Nav />
+        <Nav alt />
 
         <Layout>
           <Home {...this.props.products} />

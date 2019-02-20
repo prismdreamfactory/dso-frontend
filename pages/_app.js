@@ -88,10 +88,11 @@ class MyApp extends App {
                 flex-direction: column;
                 justify-content: center;
                 align-items: flex-start;
-                margin: 1.875rem 0 0 0;
+                // margin: 1.875rem 0 0 0;
               }
               .section__title h2 {
                 font-family: 'Playfair Display';
+                font-size: 2.5rem;
                 margin-bottom: 0;
               }
               .section__title--more {
@@ -107,7 +108,7 @@ class MyApp extends App {
                 color: rgb(212, 71, 39);
               }
               .strain--hybrid {
-                color: rgb(66, 188, 151);
+                color: rgb(118, 189, 29);
               }
             `}</style>
           </div>

@@ -15,24 +15,46 @@ class Home extends Component {
       <div style={{ width: '100%' }}>
         <div className="hero">
           <div className="hero__image">
-            <section>
-              <div className="hero__description">
-                <h3>High-end strains delivered to you</h3>
-                <p>
-                  Get a curated box monthly filled with certified DSO-grade
-                  cannabis products delivered to you.
-                </p>
-                <ScrollLink
-                  activeClass="active"
-                  to="subscribe"
-                  spy={true}
-                  smooth={true}
-                  offset={-50}
-                  duration={500}
-                >
-                  <Button label="Subscribe" />
-                </ScrollLink>
-              </div>
+            <div className="hero__video">
+              {/* <iframe
+                src="https://www.youtube.com/embed/zUsNyFwPtAQ?autoplay=1"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              /> */}
+              {/* <iframe
+                width="1872"
+                height="729"
+                src="https://www.youtube.com/embed/XM2fpUQTLds?autoplay=1&loop=1&mute=1&rel=0&showinfo=0&controls=0"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              /> */}
+              <video
+                className="hero__video"
+                src="/static/hero.mp4"
+                autoPlay
+                loop
+                muted
+              />
+            </div>
+
+            <section className="hero__description">
+              <h3>High-end strains delivered to you</h3>
+              <p>
+                Get a curated box monthly filled with certified DSO-grade
+                cannabis products delivered to you.
+              </p>
+              <ScrollLink
+                activeClass="active"
+                to="subscribe"
+                spy={true}
+                smooth={true}
+                offset={-50}
+                duration={500}
+              >
+                <Button label="Subscribe" />
+              </ScrollLink>
             </section>
           </div>
         </div>
@@ -128,10 +150,12 @@ class Home extends Component {
 
             <div className="products">
               <div className="product" onClick={this.showProduct}>
-                <img
+                {/* <img
                   className="product__image"
                   src="/static/products/concentrate-gotexcellence.jpg"
-                />
+                /> */}
+                <video src="/static/video-02.mp4" autoPlay muted loop={true} />
+
                 <div className="product__info">
                   <div className="product__name strain--indica">Cherry Pie</div>
                   <div className="product__brand">Got Excellence</div>
@@ -139,7 +163,8 @@ class Home extends Component {
                 </div>
               </div>
               <div className="product" onClick={this.showProduct}>
-                <img className="product__image" src="/static/product-01.jpg" />
+                {/* <img className="product__image" src="/static/product-01.jpg" /> */}
+                <video src="/static/video-03.mp4" autoPlay muted loop={true} />
                 <div className="product__info">
                   <div className="product__name strain--hybrid">Jet Fuel</div>
                   <div className="product__brand">Jungle Boys</div>
@@ -147,10 +172,11 @@ class Home extends Component {
                 </div>
               </div>
               <div className="product" onClick={this.showProduct}>
-                <img
+                {/* <img
                   className="product__image"
                   src="/static/products/concentrate-queenofhearts.jpg"
-                />
+                /> */}
+                <video src="/static/video-01.mp4" autoPlay muted loop={true} />
                 <div className="product__info">
                   <div className="product__name strain--sativa">
                     Gorilla Glue
@@ -160,7 +186,24 @@ class Home extends Component {
                 </div>
               </div>
               <div className="product" onClick={this.showProduct}>
-                <img className="product__image" src="/static/curt-ice-01.jpg" />
+                {/* <img className="product__image" src="/static/curt-ice-01.jpg" /> */}
+                <video
+                  src="/static/360-video-03.mp4"
+                  autoPlay
+                  muted
+                  loop={true}
+                />
+                <div className="product__info">
+                  <div className="product__name strain--indica">
+                    Sundae Driver
+                  </div>
+                  <div className="product__brand">Jungle Boys</div>
+                  <div className="product__price">$125</div>
+                </div>
+              </div>
+              <div className="product" onClick={this.showProduct}>
+                {/* <img className="product__image" src="/static/curt-ice-01.jpg" /> */}
+                <video src="/static/video-02.mp4" autoPlay muted loop={true} />
                 <div className="product__info">
                   <div className="product__name strain--indica">
                     Sundae Driver
@@ -192,11 +235,11 @@ class Home extends Component {
               <div className="product" onClick={this.showProduct}>
                 <img
                   className="product__image"
-                  src="/static/products/concentrate-02.jpg"
+                  src="/static/products/concentrate-gotexcellence.jpg"
                 />
                 <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">Jungle Boys</div>
+                  <div className="product__name strain--indica">Cherry Pie</div>
+                  <div className="product__brand">Got Excellence</div>
                   <div className="product__price">$125</div>
                 </div>
               </div>
@@ -216,7 +259,20 @@ class Home extends Component {
               <div className="product" onClick={this.showProduct}>
                 <img
                   className="product__image"
-                  src="/static/products/concentrate-03.jpg"
+                  src="/static/products/concentrate-queenofhearts.jpg"
+                />
+                <div className="product__info">
+                  <div className="product__name strain--sativa">
+                    Gorilla Glue
+                  </div>
+                  <div className="product__brand">420 Queen of Hearts</div>
+                  <div className="product__price">$125</div>
+                </div>
+              </div>
+              <div className="product" onClick={this.showProduct}>
+                <img
+                  className="product__image"
+                  src="/static/products/concentrate-01.jpg"
                 />
                 <div className="product__info">
                   <div className="product__name">Sundae Driver</div>
@@ -227,7 +283,7 @@ class Home extends Component {
               <div className="product" onClick={this.showProduct}>
                 <img
                   className="product__image"
-                  src="/static/products/concentrate-01.jpg"
+                  src="/static/products/concentrate-03.jpg"
                 />
                 <div className="product__info">
                   <div className="product__name">Sundae Driver</div>
@@ -296,6 +352,17 @@ class Home extends Component {
                   <div className="product__price">$125</div>
                 </div>
               </div>
+              <div className="product" onClick={this.showProduct}>
+                <img
+                  className="product__image"
+                  src="/static/products/edibles-02.jpg"
+                />
+                <div className="product__info">
+                  <div className="product__name">Sundae Driver</div>
+                  <div className="product__brand">303 Seeds</div>
+                  <div className="product__price">$125</div>
+                </div>
+              </div>
             </div>
           </section>
         </div>
@@ -357,6 +424,17 @@ class Home extends Component {
                   <div className="product__price">$125</div>
                 </div>
               </div>
+              <div className="product" onClick={this.showProduct}>
+                <img
+                  className="product__image"
+                  src="/static/products/vape-honey.jpg"
+                />
+                <div className="product__info">
+                  <div className="product__name">Honey</div>
+                  <div className="product__brand">303 Seeds</div>
+                  <div className="product__price">$125</div>
+                </div>
+              </div>
             </div>
           </section>
         </div>
@@ -393,6 +471,17 @@ class Home extends Component {
                 <div className="product__info">
                   <div className="product__name">Jet Fuel</div>
                   <div className="product__brand">Jungle Boys</div>
+                  <div className="product__price">$125</div>
+                </div>
+              </div>
+              <div className="product" onClick={this.showProduct}>
+                <img
+                  className="product__image"
+                  src="/static/products/cbd-select-drops-lemon.jpg"
+                />
+                <div className="product__info">
+                  <div className="product__name">Sundae Driver</div>
+                  <div className="product__brand">Medterra</div>
                   <div className="product__price">$125</div>
                 </div>
               </div>
@@ -479,6 +568,17 @@ class Home extends Component {
                   <div className="product__price">$125</div>
                 </div>
               </div>
+              <div className="product" onClick={this.showProduct}>
+                <img
+                  className="product__image"
+                  src="/static/products/accessories-mobius-bong.jpg"
+                />
+                <div className="product__info">
+                  <div className="product__name">Mobius Bong</div>
+                  <div className="product__brand">Mobius</div>
+                  <div className="product__price">$125</div>
+                </div>
+              </div>
             </div>
           </section>
         </div>
@@ -487,7 +587,7 @@ class Home extends Component {
           .hero {
             display: flex;
             width: 100%;
-            height: 350px;
+            height: 450px;
             // height: calc(100vh - 100px);
             position: relative;
           }
@@ -496,13 +596,37 @@ class Home extends Component {
             width: 100%;
             background-size: cover;
             background-position: 0 50%;
-            background-image: url(https://images.unsplash.com/photo-1532467411038-57680e3dc0f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);
-            display: flex;
-            justify-content: center;
+            background-color: #000;
+            // background-image: url(https://images.unsplash.com/photo-1532467411038-57680e3dc0f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);
+            // display: flex;
+            // justify-content: center;
+            overflow: hidden;
+          }
+
+          .hero__video {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+          }
+
+          .hero__video iframe,
+          .hero__video video {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0%;
+            left: 0;
+            object-fit: cover;
           }
 
           .hero__description {
-            // color: #fff;
+            top: 0;
+            width: 100%;
+            left: 0;
+            right: 0;
+            bottom: 0;
             max-width: 40%;
           }
 
@@ -563,8 +687,7 @@ class Home extends Component {
             margin: 0.5rem 0;
           }
           video {
-            width: calc(20% - 0.8rem);
-            margin-right: 1rem;
+            width: 100%;
           }
           video:last-child {
             margin: 0;
