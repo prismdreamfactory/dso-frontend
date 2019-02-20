@@ -23,7 +23,8 @@ class Product extends Component {
     this.setState({ in: false });
   };
 
-  addToCart = () => {
+  addToCart = (e, id) => {
+    e.preventDefault();
     this.props.addToCart(3);
   };
 
@@ -84,7 +85,10 @@ class Product extends Component {
                     src="/static/curt-ice-01.jpg"
                   />
 
-                  <Button label="Add To Cart" onClick={this.addToCart} />
+                  <Button
+                    label="Add To Cart"
+                    onClick={(e, id) => this.addToCart(e, id)}
+                  />
 
                   <a style={{ marginTop: '1rem' }}>Delivery & Returns</a>
                 </div>
