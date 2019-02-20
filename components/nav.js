@@ -103,7 +103,7 @@ class Nav extends Component {
 
         <style jsx>{`
           h1 {
-            margin: 0.75rem 0;
+            margin: 1rem 0;
           }
 
           nav {

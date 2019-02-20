@@ -12,18 +12,52 @@ class MyApp extends App {
         <Provider store={reduxStore}>
           <div id="main">
             <Component {...pageProps} />
+
+            {/* <div className="transition__video">
+              <video ref="video" src="/static/fill-screen.mp4" muted />
+            </div> */}
+
             <style jsx global>{`
+              @font-face {
+                font-family: 'Garamond Bold';
+                src: url('/static/fonts/Garamonb.eot');
+                src: url('/static/fonts/Garamonb.eot?#iefix')
+                    format('embedded-opentype'),
+                  url('/static/fonts/Garamonb.woff2') format('woff2'),
+                  url('/static/fonts/Garamonb.woff') format('woff'),
+                  url('/static/fonts/Garamonb.ttf') format('truetype'),
+                  url('/static/fonts/Garamonb.svg#svgFontName') format('svg');
+              }
+
+              .transition__video {
+                mix-blend-mode: screen;
+                position: fixed;
+                top: 0;
+                left: 0;
+                pointer-events: none;
+                width: 100vw;
+                height: 100vh;
+              }
+              .transition__video video {
+                z-index: 3;
+                position: absolute;
+                top: 0;
+                left: -10%;
+                width: 120%;
+                // visibility: hidden;
+              }
+
               #main {
                 background-image: url(https://stylehouserentals.com/wp-content/uploads/2018/11/white-marble-2.jpg);
               }
 
               body {
                 margin: 0;
-                font-family: 'Raleway';
+                font-family: 'Source Sans Pro';
               }
 
               .logo {
-                font-family: 'Playfair Display';
+                font-family: 'Garamond Bold';
               }
 
               h1,
@@ -31,7 +65,7 @@ class MyApp extends App {
               h3,
               h4,
               h5 {
-                // font-family: 'Playfair Display';
+                // font-family: 'Garamond Bold';
                 letter-spacing: 0.05em;
                 text-transform: uppercase;
                 -webkit-font-smoothing: antialiased;
@@ -44,7 +78,7 @@ class MyApp extends App {
               p,
               a,
               button {
-                font-family: 'Raleway';
+                font-family: 'Source Sans Pro';
               }
 
               ul,
@@ -80,7 +114,7 @@ class MyApp extends App {
                 flex-direction: column;
                 max-width: 75rem;
                 width: 100%;
-                margin: 0 auto;
+                margin: 2rem auto;
               }
 
               .section__title {
@@ -91,9 +125,12 @@ class MyApp extends App {
                 // margin: 1.875rem 0 0 0;
               }
               .section__title h2 {
-                font-family: 'Playfair Display';
-                font-size: 2.5rem;
-                margin-bottom: 0;
+                font-family: 'Garamond Bold';
+                font-size: 2.1rem;
+                margin: 0;
+              }
+              .section__title p {
+                margin: 0;
               }
               .section__title--more {
                 flex-direction: row;
