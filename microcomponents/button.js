@@ -6,7 +6,7 @@ class Button extends PureComponent {
     return (
       <Link href={this.props.href || ''} as={this.props.as}>
         <button
-          onClick={this.props.handleClick}
+          onClick={this.props.onClick}
           className={this.props.alt ? 'alt' : ''}
         >
           {this.props.label}

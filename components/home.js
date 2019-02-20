@@ -23,8 +23,6 @@ class Home extends Component {
                 allowfullscreen
               /> */}
               {/* <iframe
-                width="1872"
-                height="729"
                 src="https://www.youtube.com/embed/XM2fpUQTLds?autoplay=1&loop=1&mute=1&rel=0&showinfo=0&controls=0"
                 frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -40,7 +38,7 @@ class Home extends Component {
             </div>
 
             <section className="hero__description">
-              <h3>High-end strains delivered to you</h3>
+              {/* <h3>High-end strains delivered to you</h3> */}
               <p>
                 Get a curated box monthly filled with certified DSO-grade
                 cannabis products delivered to you.
@@ -53,7 +51,7 @@ class Home extends Component {
                 offset={-50}
                 duration={500}
               >
-                <Button label="Subscribe" />
+                <Button label="Subscribe" alt />
               </ScrollLink>
             </section>
           </div>
@@ -89,7 +87,7 @@ class Home extends Component {
           </div>
         </div>
 
-        <section id="subscribe">
+        <section id="subscribe" style={{ paddingTop: '2rem' }}>
           <Element name="subscribe">
             <div className="section__title">
               <h2>Monthly Subscription Box</h2>
@@ -157,7 +155,9 @@ class Home extends Component {
                 <video src="/static/video-02.mp4" autoPlay muted loop={true} />
 
                 <div className="product__info">
-                  <div className="product__name strain--indica">Cherry Pie</div>
+                  <div className="product__name strain--indica">
+                    Cherry Pie - Indica
+                  </div>
                   <div className="product__brand">Got Excellence</div>
                   <div className="product__price">$125</div>
                 </div>
@@ -166,7 +166,9 @@ class Home extends Component {
                 {/* <img className="product__image" src="/static/product-01.jpg" /> */}
                 <video src="/static/video-03.mp4" autoPlay muted loop={true} />
                 <div className="product__info">
-                  <div className="product__name strain--hybrid">Jet Fuel</div>
+                  <div className="product__name strain--hybrid">
+                    Jet Fuel - Hybrid
+                  </div>
                   <div className="product__brand">Jungle Boys</div>
                   <div className="product__price">$125</div>
                 </div>
@@ -179,7 +181,7 @@ class Home extends Component {
                 <video src="/static/video-01.mp4" autoPlay muted loop={true} />
                 <div className="product__info">
                   <div className="product__name strain--sativa">
-                    Gorilla Glue
+                    Gorilla Glue - Sativa
                   </div>
                   <div className="product__brand">420 Queen of Hearts</div>
                   <div className="product__price">$125</div>
@@ -187,15 +189,10 @@ class Home extends Component {
               </div>
               <div className="product" onClick={this.showProduct}>
                 {/* <img className="product__image" src="/static/curt-ice-01.jpg" /> */}
-                <video
-                  src="/static/360-video-03.mp4"
-                  autoPlay
-                  muted
-                  loop={true}
-                />
+                <video src="/static/video-04.mp4" autoPlay muted loop={true} />
                 <div className="product__info">
                   <div className="product__name strain--indica">
-                    Sundae Driver
+                    Sundae Driver - Indica
                   </div>
                   <div className="product__brand">Jungle Boys</div>
                   <div className="product__price">$125</div>
@@ -206,7 +203,7 @@ class Home extends Component {
                 <video src="/static/video-02.mp4" autoPlay muted loop={true} />
                 <div className="product__info">
                   <div className="product__name strain--indica">
-                    Sundae Driver
+                    Sundae Driver - Indica
                   </div>
                   <div className="product__brand">Jungle Boys</div>
                   <div className="product__price">$125</div>
@@ -527,7 +524,7 @@ class Home extends Component {
               <div className="product" onClick={this.showProduct}>
                 <img
                   className="product__image"
-                  src="/static/products/accessories-beta-bong.jpg"
+                  src="/static/products/accessories-freek-tube.jpg"
                 />
                 <div className="product__info">
                   <div className="product__name">Sundae Driver</div>
@@ -538,7 +535,7 @@ class Home extends Component {
               <div className="product" onClick={this.showProduct}>
                 <img
                   className="product__image"
-                  src="/static/products/accessories-buck-quave-allosaurus-klein.jpg"
+                  src="/static/products/accessories-regenbogen.jpg"
                 />
                 <div className="product__info">
                   <div className="product__name">Jet Fuel</div>
@@ -549,7 +546,7 @@ class Home extends Component {
               <div className="product" onClick={this.showProduct}>
                 <img
                   className="product__image"
-                  src="/static/products/accessories-regenbogen.jpg"
+                  src="/static/products/accessories-tetra-02.jpg"
                 />
                 <div className="product__info">
                   <div className="product__name">Sundae Driver</div>
@@ -627,15 +624,18 @@ class Home extends Component {
             left: 0;
             right: 0;
             bottom: 0;
-            max-width: 40%;
+            // max-width: 40%;
+            position: absolute;
+            color: #fff;
           }
 
           .brands {
             width: 100%;
             background: #000;
-            // background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkSMZltP8Uqj6dXkjARjfEUoh_KM5LvbFZA7XP25p5XA_2u8lbaQ);
+            background: url(https://i.pinimg.com/originals/eb/9e/cf/eb9ecf6ba9a6d335fa8a321ac7594f4b.jpg);
+            background-size: cover;
             border-bottom: 1px solid #ccc;
-            height: 100px;
+            height: 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -648,7 +648,7 @@ class Home extends Component {
             align-items: center;
           }
           .brands__logo {
-            max-width: 70px;
+            max-width: 60px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -790,7 +790,9 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  collections: state.collections
+});
 
 export default connect(
   mapStateToProps,

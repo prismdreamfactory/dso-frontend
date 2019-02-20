@@ -10,12 +10,12 @@ export default ({ children }) => (
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <link
-        href="https://fonts.googleapis.com/css?family=Raleway"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro"
         rel="stylesheet"
         key="google-font-lato"
       />
       <link
-        href="https://fonts.googleapis.com/css?family=Playfair+Display"
+        href="https://fonts.googleapis.com/css?family=Poiret+One"
         rel="stylesheet"
         key="google-font-playfair"
       />
@@ -46,6 +46,8 @@ export default ({ children }) => (
         align-items: center;
         background: #000;
         color: #fff;
+        background: url(https://i.pinimg.com/originals/eb/9e/cf/eb9ecf6ba9a6d335fa8a321ac7594f4b.jpg);
+        background-size: cover;
       }
     `}</style>
   </div>

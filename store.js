@@ -2,7 +2,7 @@ import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const initialState = {
-  collections: ['flower', 'concentrates', 'pre-rolls'],
+  cart: [],
   products: [
     {
       id: 1,
@@ -53,12 +53,18 @@ const initialState = {
       image: '/static/products/concentrate-01.jpg'
     }
   ],
+  collections: {
+    '1': { id: '1', name: 'flower', products: [1, 2, 3, 4, 5, 6] },
+    '2': { id: '2', name: 'concentrates', products: [1, 2, 3, 4, 5, 6] },
+    '3': { id: '3', name: 'edibles', products: [1, 2, 3, 4, 5, 6] }
+  },
   showCart: false,
   showProduct: false
 };
 
 export const actionTypes = {
   TOGGLE_CART: 'TOGGLE_CART',
+  ADD_TO_CART: 'ADD_TO_CART',
   VIEW_PRODUCT: 'VIEW_PRODUCT'
 };
 
@@ -69,6 +75,12 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         showCart: !state.showCart
+      };
+
+    case actionTypes.ADD_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, action.product]
       };
 
     case actionTypes.VIEW_PRODUCT:
@@ -83,6 +95,14 @@ export const reducer = (state = initialState, action) => {
 };
 
 export const toggleCart = () => ({ type: actionTypes.TOGGLE_CART });
+export const addToCart = product => ({
+  type: actionTypes.ADD_TO_CART,
+  product
+});
+export const refreshCart = product => ({
+  type: actionTypes.REFRESH_CART,
+  product
+});
 
 export const viewProduct = () => ({ type: actionTypes.VIEW_PRODUCT });
 

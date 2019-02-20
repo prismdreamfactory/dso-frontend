@@ -4,7 +4,7 @@ import { Transition } from 'react-transition-group';
 import ReactSVG from 'react-svg';
 import Button from '../microcomponents/button';
 
-import { viewProduct } from '../store';
+import { viewProduct, addToCart } from '../store';
 
 const transitionStyles = {
   entering: { top: '100%' },
@@ -21,6 +21,10 @@ class Product extends Component {
 
   closeProduct = () => {
     this.setState({ in: false });
+  };
+
+  addToCart = () => {
+    this.props.addToCart(2);
   };
 
   render() {
@@ -80,7 +84,7 @@ class Product extends Component {
                     src="/static/curt-ice-01.jpg"
                   />
 
-                  <Button label="Order" />
+                  <Button label="Add To Cart" onClick={this.addToCart} />
 
                   <a style={{ marginTop: '1rem' }}>Delivery & Returns</a>
                 </div>
@@ -185,5 +189,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { viewProduct }
+  { viewProduct, addToCart }
 )(Product);

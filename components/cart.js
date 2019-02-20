@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import { Transition } from 'react-transition-group';
 import ReactSVG from 'react-svg';
 import Button from '../microcomponents/button';
+import CartItem from './cart-item';
 
 import { toggleCart } from '../store';
 
 const transitionStyles = {
-  entering: { top: '100%' },
-  entered: { top: '3rem' },
-  exiting: { top: '100%' }
+  entering: { opacity: 0 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 0 }
 };
 
 class Cart extends Component {
@@ -40,37 +41,14 @@ class Cart extends Component {
             >
               <h2>Cart</h2>
 
-              <section>
-                <div className="cart__row">
-                  <div className="cart__description">
-                    <div className="cart__product-thumb">
-                      <img src="http://placehold.it/100x100?text=+" />
-                    </div>
-                    <div className="cart__product-name">
-                      <a>Sundae Driver</a>
-                      <p>Jungle Boys</p>
-                    </div>
-                  </div>
-                  <div className="cart__controls">
-                    <div className="controls__delete cart__controls-item">
-                      <ReactSVG
-                        src="/static/icons/_ionicons_svg_ios-trash.svg"
-                        svgStyle={{ width: '2rem' }}
-                      />
-                    </div>
-                    <div className="controls__amount cart__controls-item">
-                      <div className="controls__price">$35</div>
-                      <div className="controls__qty">Qty: 1</div>
-                    </div>
-                    <div className="controls__quantity cart__controls-item">
-                      <ReactSVG
-                        src="/static/icons/_ionicons_svg_ios-add-circle-outline.svg"
-                        svgStyle={{ width: '2rem' }}
-                      />
-                    </div>
-                  </div>
+              <section className="cart-container">
+                <div>
+                  {this.props.products.map(props => (
+                    <CartItem key={props.id} {...props} />
+                  ))}
                 </div>
               </section>
+
               <section className="cart__subtotal">
                 <div>Subtotal</div>
                 <div>$35</div>
@@ -90,8 +68,10 @@ class Cart extends Component {
 
             <style jsx>{`
               section {
+                margin: 0;
                 padding: 1rem 0;
               }
+
               p {
                 margin: 0;
               }
@@ -113,7 +93,8 @@ class Cart extends Component {
               .cart {
                 height: calc(100% - 3rem);
                 position: absolute;
-                top: 100%;
+                // top: 100%;
+                top: 3rem;
                 display: flex;
                 flex-direction: column;
                 width: 45rem;
@@ -124,35 +105,12 @@ class Cart extends Component {
                 transition: 0.1s ease;
               }
 
-              .cart__row {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-                font-size: 1rem;
-                padding: 1rem 0;
-              }
-
-              .cart__description {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-              }
-
-              .cart__product-name {
-                display: flex;
-                flex-direction: column;
-                margin-left: 2rem;
-              }
-
-              .cart__controls {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-              }
-
-              .cart__controls-item {
-                margin-left: 2rem;
+              .cart-container {
+                border-top: 1px solid #ccc;
+                overflow-y: scroll;
+                justify-content: flex-start;
+                height: calc(100vh - 20rem);
+                padding: 0 2rem 0 0;
               }
 
               .cart__subtotal {
@@ -161,7 +119,6 @@ class Cart extends Component {
                 justify-content: space-between;
                 font-size: 1.25rem;
                 border-top: 1px solid #ccc;
-                padding: 2rem 0;
               }
 
               .controls__price {
@@ -199,7 +156,8 @@ class Cart extends Component {
 }
 
 const mapStateToProps = state => ({
-  showCart: state.showCart
+  showCart: state.showCart,
+  products: state.products
 });
 
 export default connect(
