@@ -61,7 +61,12 @@ class Nav extends Component {
 
               {this.props.goBack ? (
                 <Link href="/">
-                  <div style={color}>Go back</div>
+                  <div style={color}>
+                    <ReactSVG
+                      src="/static/icons/_ionicons_svg_ios-arrow-round-back.svg"
+                      svgStyle={{ width: '40px', fill: '#fff' }}
+                    />
+                  </div>
                 </Link>
               ) : (
                 ''
