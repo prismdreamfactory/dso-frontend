@@ -1,10 +1,11 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import thunkMiddleware from 'redux-thunk';
 
-const initialState = {
-  cart: [],
-  products: [
-    {
+const INITIAL_STATE = {
+  cart: [1, 2],
+  products: {
+    1: {
       id: 1,
       name: "Snoop's Choice",
       brand: 'Snoop',
@@ -12,7 +13,7 @@ const initialState = {
       type: 'indica',
       image: '/static/products/concentrate-gotexcellence.jpg'
     },
-    {
+    2: {
       id: 2,
       name: "Chong's Choice",
       brand: 'Chong',
@@ -20,7 +21,7 @@ const initialState = {
       type: 'sativa',
       image: '/static/products/concentrate-goldenleaf.jpg'
     },
-    {
+    3: {
       id: 3,
       name: 'Garrison Lanes Top Shelf',
       brand: 'Garrison Lane',
@@ -28,7 +29,7 @@ const initialState = {
       type: 'hybrid',
       image: '/static/products/concentrate-queenofhearts.jpg'
     },
-    {
+    4: {
       id: 4,
       name: 'Jungle Boys Only',
       brand: 'Jungle Boys',
@@ -36,7 +37,7 @@ const initialState = {
       type: 'sativa',
       image: '/static/curt-ice-01.jpg'
     },
-    {
+    5: {
       id: 5,
       name: "Snoop's Choice",
       brand: 'Snoop',
@@ -44,7 +45,7 @@ const initialState = {
       type: 'indica',
       image: '/static/products/concentrate-gotexcellence.jpg'
     },
-    {
+    6: {
       id: 6,
       name: "Chong's Choice",
       brand: 'Chong',
@@ -52,11 +53,11 @@ const initialState = {
       type: 'sativa',
       image: '/static/products/concentrate-01.jpg'
     }
-  ],
+  },
   collections: {
-    '1': { id: '1', name: 'flower', products: [1, 2, 3, 4, 5, 6] },
-    '2': { id: '2', name: 'concentrates', products: [1, 2, 3, 4, 5, 6] },
-    '3': { id: '3', name: 'edibles', products: [1, 2, 3, 4, 5, 6] }
+    1: { id: '1', name: 'flower', products: [1, 2, 3, 4, 5, 6] },
+    2: { id: '2', name: 'concentrates', products: [1, 2, 3, 4, 5, 6] },
+    3: { id: '3', name: 'edibles', products: [1, 2, 3, 4, 5, 6] }
   },
   showCart: false,
   showProduct: false
@@ -65,11 +66,13 @@ const initialState = {
 export const actionTypes = {
   TOGGLE_CART: 'TOGGLE_CART',
   ADD_TO_CART: 'ADD_TO_CART',
+  REMOVE_FROM_CART: 'REMOVE_FROM_CART',
+  FETCH_PRODUCTS: 'FETCH_PRODUCTS',
   VIEW_PRODUCT: 'VIEW_PRODUCT'
 };
 
 // REDUCERS
-export const reducer = (state = initialState, action) => {
+export const reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case actionTypes.TOGGLE_CART:
       return {
@@ -81,6 +84,18 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         cart: [...state.cart, action.product]
+      };
+
+    case actionTypes.REMOVE_FROM_CART:
+      return {
+        ...state,
+        cart: [...state.cart.filter(id => id !== action.product)]
+      };
+
+    case actionTypes.FETCH_PRODUCTS:
+      return {
+        ...state,
+        products: products
       };
 
     case actionTypes.VIEW_PRODUCT:
@@ -99,13 +114,17 @@ export const addToCart = product => ({
   type: actionTypes.ADD_TO_CART,
   product
 });
-export const refreshCart = product => ({
-  type: actionTypes.REFRESH_CART,
+export const removeFromCart = product => ({
+  type: actionTypes.REMOVE_FROM_CART,
   product
 });
 
+export const fetchProducts = () => ({ type: actionTypes.FETCH_PRODUCTS });
 export const viewProduct = () => ({ type: actionTypes.VIEW_PRODUCT });
 
-export function initializeStore(initialState = initialState) {
-  return createStore(reducer, composeWithDevTools());
+export function initializeStore(initialState = INITIAL_STATE) {
+  return createStore(
+    reducer,
+    composeWithDevTools(applyMiddleware(thunkMiddleware))
+  );
 }
