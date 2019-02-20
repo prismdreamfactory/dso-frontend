@@ -2,15 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '../microcomponents/button';
 import { Link as ScrollLink, Element } from 'react-scroll';
-import Link from 'next/link';
-import { toggleCart, viewProduct } from '../store';
+import ProductCell from '../components/product-cell';
+import { toggleCart, viewProduct, fetchProducts } from '../store';
 
 class Home extends Component {
+  componentDidMount() {
+    this.props.fetchProducts();
+  }
+
   showProduct = () => {
     this.props.viewProduct();
   };
 
   render() {
+    const { collections, products } = this.props;
+
     return (
       <div style={{ width: '100%' }}>
         <div className="hero">
@@ -96,38 +102,11 @@ class Home extends Component {
           </Element>
 
           <div className="products">
-            <div className="product" onClick={this.showProduct}>
-              <img className="product__image" src="/static/box-05.jpg" />
-              <div className="product__info">
-                <div className="product__name">Snoop's Choice</div>
-                <div className="product__brand">By Snoop Dogg</div>
-                <div className="product__price">$125/mo</div>
-              </div>
-            </div>
-            <div className="product" onClick={this.showProduct}>
-              <img className="product__image" src="/static/box-06.jpg" />
-              <div className="product__info">
-                <div className="product__name">Chong's Choice</div>
-                <div className="product__brand">By Chong</div>
-                <div className="product__price">$200/mo</div>
-              </div>
-            </div>
-            <div className="product" onClick={this.showProduct}>
-              <img className="product__image" src="/static/box-04.jpg" />
-              <div className="product__info">
-                <div className="product__name">Garrison Lanes Top Shelf</div>
-                <div className="product__brand">303 Seeds</div>
-                <div className="product__price">$300/mo</div>
-              </div>
-            </div>
-            <div className="product" onClick={this.showProduct}>
-              <img className="product__image" src="/static/box-03.jpg" />
-              <div className="product__info">
-                <div className="product__name">Sundae Driver</div>
-                <div className="product__brand">303 Seeds</div>
-                <div className="product__price">$400/mo</div>
-              </div>
-            </div>
+            {Object.values(products)
+              .filter(product => product.category === 7)
+              .map(props => (
+                <ProductCell key={props.id} {...props} />
+              ))}
           </div>
         </section>
 
@@ -147,68 +126,11 @@ class Home extends Component {
             </div>
 
             <div className="products">
-              <div className="product" onClick={this.showProduct}>
-                {/* <img
-                  className="product__image"
-                  src="/static/products/concentrate-gotexcellence.jpg"
-                /> */}
-                <video src="/static/video-02.mp4" autoPlay muted loop={true} />
-
-                <div className="product__info">
-                  <div className="product__name strain--indica">
-                    Cherry Pie - Indica
-                  </div>
-                  <div className="product__brand">Got Excellence</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                {/* <img className="product__image" src="/static/product-01.jpg" /> */}
-                <video src="/static/video-03.mp4" autoPlay muted loop={true} />
-                <div className="product__info">
-                  <div className="product__name strain--hybrid">
-                    Jet Fuel - Hybrid
-                  </div>
-                  <div className="product__brand">Jungle Boys</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                {/* <img
-                  className="product__image"
-                  src="/static/products/concentrate-queenofhearts.jpg"
-                /> */}
-                <video src="/static/video-01.mp4" autoPlay muted loop={true} />
-                <div className="product__info">
-                  <div className="product__name strain--sativa">
-                    Gorilla Glue - Sativa
-                  </div>
-                  <div className="product__brand">420 Queen of Hearts</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                {/* <img className="product__image" src="/static/curt-ice-01.jpg" /> */}
-                <video src="/static/video-04.mp4" autoPlay muted loop={true} />
-                <div className="product__info">
-                  <div className="product__name strain--indica">
-                    Sundae Driver - Indica
-                  </div>
-                  <div className="product__brand">Jungle Boys</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                {/* <img className="product__image" src="/static/curt-ice-01.jpg" /> */}
-                <video src="/static/video-02.mp4" autoPlay muted loop={true} />
-                <div className="product__info">
-                  <div className="product__name strain--indica">
-                    Sundae Driver - Indica
-                  </div>
-                  <div className="product__brand">Jungle Boys</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
+              {Object.values(products)
+                .filter(product => product.category === 1)
+                .map(props => (
+                  <ProductCell key={props.id} {...props} video />
+                ))}
             </div>
           </section>
         </div>
@@ -229,65 +151,11 @@ class Home extends Component {
             </div>
 
             <div className="products">
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/concentrate-gotexcellence.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name strain--indica">Cherry Pie</div>
-                  <div className="product__brand">Got Excellence</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/concentrate-goldenleaf.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name strain--indica">
-                    Shatter OG Kush
-                  </div>
-                  <div className="product__brand">Golden Leaf Scientifics</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/concentrate-queenofhearts.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name strain--sativa">
-                    Gorilla Glue
-                  </div>
-                  <div className="product__brand">420 Queen of Hearts</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/concentrate-01.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">303 Seeds</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/concentrate-03.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">303 Seeds</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
+              {Object.values(products)
+                .filter(product => product.category === 2)
+                .map(props => (
+                  <ProductCell key={props.id} {...props} />
+                ))}
             </div>
           </section>
         </div>
@@ -305,61 +173,11 @@ class Home extends Component {
             </div>
 
             <div className="products">
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/edibles-01.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">Jungle Boys</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/edibles-05.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Jet Fuel</div>
-                  <div className="product__brand">Jungle Boys</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/edibles-04.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">303 Seeds</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/edibles-03.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">303 Seeds</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/edibles-02.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">303 Seeds</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
+              {Object.values(products)
+                .filter(product => product.category === 3)
+                .map(props => (
+                  <ProductCell key={props.id} {...props} />
+                ))}
             </div>
           </section>
         </div>
@@ -377,61 +195,11 @@ class Home extends Component {
             </div>
 
             <div className="products">
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/vape-paris.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">Jungle Boys</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/vape-madre.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Jet Fuel</div>
-                  <div className="product__brand">Jungle Boys</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/vape-king.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">303 Seeds</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/vape-abx.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">303 Seeds</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/vape-honey.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Honey</div>
-                  <div className="product__brand">303 Seeds</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
+              {Object.values(products)
+                .filter(product => product.category === 4)
+                .map(props => (
+                  <ProductCell key={props.id} {...props} />
+                ))}
             </div>
           </section>
         </div>
@@ -449,61 +217,11 @@ class Home extends Component {
             </div>
 
             <div className="products">
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/cbd-koi.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">Jungle Boys</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/cbd-select-drops-lavender.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Jet Fuel</div>
-                  <div className="product__brand">Jungle Boys</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/cbd-select-drops-lemon.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">Medterra</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/cbd-select.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">303 Seeds</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/cbd-medterra.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">Medterra</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
+              {Object.values(products)
+                .filter(product => product.category === 5)
+                .map(props => (
+                  <ProductCell key={props.id} {...props} />
+                ))}
             </div>
           </section>
         </div>
@@ -521,61 +239,11 @@ class Home extends Component {
             </div>
 
             <div className="products">
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/accessories-freek-tube.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">Jungle Boys</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/accessories-regenbogen.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Jet Fuel</div>
-                  <div className="product__brand">Jungle Boys</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/accessories-tetra-02.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">303 Seeds</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/accessories-tetra.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Sundae Driver</div>
-                  <div className="product__brand">303 Seeds</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
-              <div className="product" onClick={this.showProduct}>
-                <img
-                  className="product__image"
-                  src="/static/products/accessories-mobius-bong.jpg"
-                />
-                <div className="product__info">
-                  <div className="product__name">Mobius Bong</div>
-                  <div className="product__brand">Mobius</div>
-                  <div className="product__price">$125</div>
-                </div>
-              </div>
+              {Object.values(products)
+                .filter(product => product.category === 6)
+                .map(props => (
+                  <ProductCell key={props.id} {...props} />
+                ))}
             </div>
           </section>
         </div>
@@ -675,17 +343,6 @@ class Home extends Component {
             height: 200px;
           }
 
-          .vid-grid {
-            display: flex;
-            align-items: flex-end;
-            flex-direction: column;
-            margin: 1rem 0;
-          }
-          .vid-grid__row {
-            display: flex;
-            align-items: center;
-            margin: 0.5rem 0;
-          }
           video {
             width: 100%;
           }
@@ -771,9 +428,6 @@ class Home extends Component {
             .brands__logo {
               margin-bottom: 0.5rem;
             }
-            .vid-grid {
-              display: none;
-            }
 
             .product {
               width: 100%;
@@ -791,10 +445,11 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-  collections: state.collections
+  collections: state.collections,
+  products: state.products
 });
 
 export default connect(
   mapStateToProps,
-  { toggleCart, viewProduct }
+  { toggleCart, viewProduct, fetchProducts }
 )(Home);

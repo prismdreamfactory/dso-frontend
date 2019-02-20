@@ -12,7 +12,12 @@ class ProductCell extends Component {
 
     return (
       <div className="product" onClick={this.showProduct}>
-        <img className="product__image" src={image} />
+        {this.props.video ? (
+          <video src={`/static/${image}`} autoPlay muted loop={true} />
+        ) : (
+          <img className="product__image" src={`/static/products/${image}`} />
+        )}
+
         <div className="product__info">
           <div className={`product__name strain--${type}`}>{name}</div>
           <div className="product__brand">{brand}</div>
@@ -23,14 +28,21 @@ class ProductCell extends Component {
           .product {
             display: flex;
             flex-direction: column;
-            // width: calc(25% - 1.125rem);
+            width: calc(25% - 1.125rem);
             margin: 2rem 1.5rem 1.5rem 0;
             cursor: pointer;
-            flex: 1 0 calc(25% - 1.125rem);
+            // flex: 1 0 calc(25% - 1.125rem);
           }
 
           .product:last-child {
             margin-right: 0;
+          }
+
+          video {
+            width: 100%;
+          }
+          video:last-child {
+            margin: 0;
           }
 
           .product__image {

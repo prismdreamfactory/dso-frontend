@@ -1,59 +1,11 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
+import products from './data';
 
 const INITIAL_STATE = {
   cart: [1, 2],
-  products: {
-    1: {
-      id: 1,
-      name: "Snoop's Choice",
-      brand: 'Snoop',
-      price: 125,
-      type: 'indica',
-      image: '/static/products/concentrate-gotexcellence.jpg'
-    },
-    2: {
-      id: 2,
-      name: "Chong's Choice",
-      brand: 'Chong',
-      price: 125,
-      type: 'sativa',
-      image: '/static/products/concentrate-goldenleaf.jpg'
-    },
-    3: {
-      id: 3,
-      name: 'Garrison Lanes Top Shelf',
-      brand: 'Garrison Lane',
-      price: 125,
-      type: 'hybrid',
-      image: '/static/products/concentrate-queenofhearts.jpg'
-    },
-    4: {
-      id: 4,
-      name: 'Jungle Boys Only',
-      brand: 'Jungle Boys',
-      price: 125,
-      type: 'sativa',
-      image: '/static/curt-ice-01.jpg'
-    },
-    5: {
-      id: 5,
-      name: "Snoop's Choice",
-      brand: 'Snoop',
-      price: 125,
-      type: 'indica',
-      image: '/static/products/concentrate-gotexcellence.jpg'
-    },
-    6: {
-      id: 6,
-      name: "Chong's Choice",
-      brand: 'Chong',
-      price: 125,
-      type: 'sativa',
-      image: '/static/products/concentrate-01.jpg'
-    }
-  },
+  products: {},
   collections: {
     1: { id: '1', name: 'flower', products: [1, 2, 3, 4, 5, 6] },
     2: { id: '2', name: 'concentrates', products: [1, 2, 3, 4, 5, 6] },
@@ -95,7 +47,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case actionTypes.FETCH_PRODUCTS:
       return {
         ...state,
-        products: products
+        products: action.products
       };
 
     case actionTypes.VIEW_PRODUCT:
@@ -109,17 +61,23 @@ export const reducer = (state = INITIAL_STATE, action) => {
   }
 };
 
+// Cart
 export const toggleCart = () => ({ type: actionTypes.TOGGLE_CART });
+
 export const addToCart = product => ({
   type: actionTypes.ADD_TO_CART,
   product
 });
+
 export const removeFromCart = product => ({
   type: actionTypes.REMOVE_FROM_CART,
   product
 });
 
-export const fetchProducts = () => ({ type: actionTypes.FETCH_PRODUCTS });
+// Product
+export const fetchProducts = () => dispatch =>
+  dispatch({ type: actionTypes.FETCH_PRODUCTS, products });
+
 export const viewProduct = () => ({ type: actionTypes.VIEW_PRODUCT });
 
 export function initializeStore(initialState = INITIAL_STATE) {
