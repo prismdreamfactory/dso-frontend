@@ -32,6 +32,7 @@ class Button extends PureComponent {
 
             button.alt {
               border-color: #fff;
+              color: #fff;
             }
 
             button:hover {

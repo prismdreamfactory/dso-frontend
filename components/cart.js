@@ -5,7 +5,7 @@ import ReactSVG from 'react-svg';
 import Button from '../microcomponents/button';
 import CartItem from './cart-item';
 
-import { toggleCart } from '../store';
+import { toggleCart, removeFromCart } from '../store';
 
 const transitionStyles = {
   entering: { opacity: 0 },
@@ -24,7 +24,17 @@ class Cart extends Component {
     this.setState({ in: false });
   };
 
+  deleteCartItem = id => {
+    this.props.removeFromCart(id);
+  };
+
   render() {
+    const { cart, products } = this.props;
+    const cartItems = cart.map(productId => products[productId]);
+    const cartTotal = cart
+      .map(productId => products[productId].price)
+      .reduce((sum, value) => sum + value, 0);
+
     return (
       <Transition
         in={this.state.in}
@@ -43,15 +53,19 @@ class Cart extends Component {
 
               <section className="cart-container">
                 <div>
-                  {this.props.products.map(props => (
-                    <CartItem key={props.id} {...props} />
+                  {cartItems.map(props => (
+                    <CartItem
+                      key={props.id}
+                      {...props}
+                      deleteCartItem={() => this.deleteCartItem(props.id)}
+                    />
                   ))}
                 </div>
               </section>
 
               <section className="cart__subtotal">
                 <div>Subtotal</div>
-                <div>$35</div>
+                <div>${cartTotal}</div>
               </section>
 
               <div onClick={this.closeCart} className="close-button">
@@ -157,10 +171,11 @@ class Cart extends Component {
 
 const mapStateToProps = state => ({
   showCart: state.showCart,
+  cart: state.cart,
   products: state.products
 });
 
 export default connect(
   mapStateToProps,
-  { toggleCart }
+  { toggleCart, removeFromCart }
 )(Cart);

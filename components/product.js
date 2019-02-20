@@ -24,7 +24,7 @@ class Product extends Component {
   };
 
   addToCart = () => {
-    this.props.addToCart(2);
+    this.props.addToCart(3);
   };
 
   render() {
@@ -145,7 +145,7 @@ class Product extends Component {
                 right: 0;
                 width: 50%;
                 height: 100%;
-                background: rgba(110, 51, 94, 0.85);
+                // background: rgba(110, 51, 94, 0.85);
                 display: flex;
                 justify-content: center;
                 text-align: center;
