@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { viewProduct } from '../store';
+import ReactSVG from 'react-svg';
+import { viewProduct, addToCart } from '../store';
 
 class ProductCell extends Component {
   showProduct = () => {
     this.props.viewProduct();
+  };
+
+  addToCart = (e, id) => {
+    e.stopPropagation();
+    this.props.addToCart(3);
   };
 
   render() {
@@ -12,11 +18,22 @@ class ProductCell extends Component {
 
     return (
       <div className="product" onClick={this.showProduct}>
-        {this.props.video ? (
-          <video src={`/static/${image}`} autoPlay muted loop={true} />
-        ) : (
-          <img className="product__image" src={`/static/products/${image}`} />
-        )}
+        <div className="product__image">
+          {this.props.video ? (
+            <video src={`/static/${image}`} autoPlay muted loop={true} />
+          ) : (
+            <img src={`/static/products/${image}`} />
+          )}
+          <button
+            className="product__add"
+            onClick={(e, id) => this.addToCart(e, id)}
+          >
+            <ReactSVG
+              src="/static/icons/_ionicons_svg_ios-add-circle-outline.svg"
+              svgStyle={{ width: '2rem', fill: '#666' }}
+            />
+          </button>
+        </div>
 
         <div className="product__info">
           <div className={`product__name strain--${type}`}>{name}</div>
@@ -45,12 +62,12 @@ class ProductCell extends Component {
             margin: 0;
           }
 
-          .product__image {
+          img {
             height: 250px;
             object-fit: cover;
           }
 
-          .product__image:last-child {
+          .img:last-child {
             margin: 0;
           }
 
@@ -72,6 +89,28 @@ class ProductCell extends Component {
             // color: #fff;
             font-weight: 700;
             margin-top: 0.5rem;
+          }
+
+          .product__image {
+            position: relative;
+          }
+
+          .product:hover .product__add {
+            opacity: 1;
+          }
+
+          .product__add {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0.5rem;
+            transform: scale(0.9);
+            opacity: 0;
+          }
+
+          .product__add:hover {
+            transition: 0.3s ease;
+            transform: scale(1);
           }
 
           @media (max-width: 768px) {
@@ -96,5 +135,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { viewProduct }
+  { viewProduct, addToCart }
 )(ProductCell);

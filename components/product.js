@@ -26,6 +26,7 @@ class Product extends Component {
   addToCart = (e, id) => {
     e.preventDefault();
     this.props.addToCart(3);
+    this.setState({ in: false });
   };
 
   render() {
