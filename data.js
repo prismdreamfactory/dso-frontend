@@ -270,7 +270,7 @@ export default {
     image: 'accessories-mobius-bong.jpg'
   },
   31: {
-    id: 1,
+    id: 31,
     name: "Snoop's Choice",
     brand: 'Snoop',
     price: 125,
@@ -279,7 +279,7 @@ export default {
     image: 'box-05.jpg'
   },
   32: {
-    id: 2,
+    id: 32,
     name: "Chong's Choice",
     brand: 'Chong',
     price: 125,
@@ -288,7 +288,7 @@ export default {
     image: 'box-06.jpg'
   },
   33: {
-    id: 3,
+    id: 33,
     name: 'Garrison Lanes Top Shelf',
     brand: 'Garrison Lane',
     price: 125,
@@ -297,7 +297,7 @@ export default {
     image: 'box-04.jpg'
   },
   34: {
-    id: 4,
+    id: 34,
     name: 'Jungle Boys Only',
     brand: 'Jungle Boys',
     price: 125,

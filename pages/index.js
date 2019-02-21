@@ -26,7 +26,9 @@ class Index extends Component {
         <Layout>
           <Home />
           {this.props.showCart && <Cart />}
-          {this.props.showProduct && <Product />}
+          {this.props.showProduct && (
+            <Product currentProduct={this.props.currentProduct} />
+          )}
         </Layout>
       </div>
     );
@@ -35,7 +37,8 @@ class Index extends Component {
 
 const mapStateToProps = state => ({
   showCart: state.showCart,
-  showProduct: state.showProduct
+  showProduct: state.showProduct,
+  currentProduct: state.currentProduct
 });
 
 export default connect(

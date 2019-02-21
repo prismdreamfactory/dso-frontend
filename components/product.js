@@ -23,9 +23,10 @@ class Product extends Component {
     this.setState({ in: false });
   };
 
-  addToCart = (e, id) => {
+  addToCart = e => {
     e.preventDefault();
-    this.props.addToCart(3);
+
+    this.props.addToCart(this.props.currentProduct);
     this.setState({ in: false });
   };
 
@@ -58,7 +59,11 @@ class Product extends Component {
               <div className="menu__description">
                 <div className="menu__content">
                   <div className="product__info">
-                    <h2 className="product__name strain--indica">{name}</h2>
+                    <h2
+                      className={`product__name strain--${type.toLowerCase()}`}
+                    >
+                      {name}
+                    </h2>
                     <div className="product__brand">{brand}</div>
                     <div className="product__price">${price}</div>
                   </div>
@@ -83,14 +88,22 @@ class Product extends Component {
 
               <div className="menu__product">
                 <div className="menu__content--product">
-                  <img
-                    className="product__image"
-                    src={`/static/products/${image}`}
-                  />
+                  <div className="product__image">
+                    {image.split('.').pop() === 'mp4' ? (
+                      <video
+                        src={`/static/${image}`}
+                        autoPlay
+                        muted
+                        loop={true}
+                      />
+                    ) : (
+                      <img src={`/static/products/${image}`} />
+                    )}
+                  </div>
 
                   <Button
                     label="Add To Cart"
-                    onClick={(e, id) => this.addToCart(e, id)}
+                    onClick={e => this.addToCart(e)}
                   />
 
                   <a style={{ marginTop: '1rem' }}>Delivery & Returns</a>
@@ -99,6 +112,10 @@ class Product extends Component {
             </div>
 
             <style jsx>{`
+              video {
+                width: 100%;
+              }
+
               .menu-wrapper {
                 z-index: 15;
                 position: fixed;
@@ -169,9 +186,13 @@ class Product extends Component {
               }
 
               .product__image {
+                margin-bottom: 2rem;
+              }
+
+              .product__image img,
+              .product__image video {
                 height: 400px;
                 object-fit: cover;
-                margin-bottom: 2rem;
               }
 
               .close-button {
@@ -192,8 +213,8 @@ class Product extends Component {
 
 const mapStateToProps = state => ({
   showProduct: state.showProduct,
-  products: state.products,
-  currentProduct: state.currentProduct
+  products: state.products
+  // currentProduct: state.currentProduct
 });
 
 export default connect(
