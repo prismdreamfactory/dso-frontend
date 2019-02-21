@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactSVG from 'react-svg';
 import { viewProduct, addToCart } from '../store';
+import Link from 'next/link';
 
 class ProductCell extends Component {
   showProduct = () => {
-    this.props.viewProduct();
+    this.props.viewProduct(this.props.id);
   };
 
   addToCart = (e, id) => {
@@ -41,10 +42,10 @@ class ProductCell extends Component {
 
         <div className="product__info">
           <div className={`product__name strain--${type.toLowerCase()}`}>
-            {name}
+            {name} {type && `- ${type}`}
           </div>
           <div className="product__brand">{brand}</div>
-          <div className="product__price">{price}</div>
+          <div className="product__price">${price}</div>
         </div>
 
         <style jsx>{`

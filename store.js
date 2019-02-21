@@ -12,7 +12,8 @@ const INITIAL_STATE = {
     3: { id: '3', name: 'edibles', products: [1, 2, 3, 4, 5, 6] }
   },
   showCart: false,
-  showProduct: false
+  showProduct: false,
+  currentProduct: ''
 };
 
 export const actionTypes = {
@@ -53,7 +54,8 @@ export const reducer = (state = INITIAL_STATE, action) => {
     case actionTypes.VIEW_PRODUCT:
       return {
         ...state,
-        showProduct: !state.showProduct
+        showProduct: !state.showProduct,
+        currentProduct: action.currentProduct
       };
 
     default:
@@ -78,7 +80,10 @@ export const removeFromCart = product => ({
 export const fetchProducts = () => dispatch =>
   dispatch({ type: actionTypes.FETCH_PRODUCTS, products });
 
-export const viewProduct = () => ({ type: actionTypes.VIEW_PRODUCT });
+export const viewProduct = currentProduct => ({
+  type: actionTypes.VIEW_PRODUCT,
+  currentProduct
+});
 
 export function initializeStore(initialState = INITIAL_STATE) {
   return createStore(

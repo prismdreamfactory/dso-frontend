@@ -24,7 +24,7 @@ class Index extends Component {
         <Nav alt />
 
         <Layout>
-          <Home {...this.props.products} />
+          <Home />
           {this.props.showCart && <Cart />}
           {this.props.showProduct && <Product />}
         </Layout>

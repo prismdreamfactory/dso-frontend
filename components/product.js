@@ -30,6 +30,10 @@ class Product extends Component {
   };
 
   render() {
+    const { products, currentProduct } = this.props;
+    const product = products[currentProduct];
+    const { image, type, name, brand, price } = product;
+
     return (
       <Transition
         in={this.state.in}
@@ -54,11 +58,9 @@ class Product extends Component {
               <div className="menu__description">
                 <div className="menu__content">
                   <div className="product__info">
-                    <h2 className="product__name strain--indica">
-                      Sundae Driver
-                    </h2>
-                    <div className="product__brand">Jungle Boys</div>
-                    <div className="product__price">$125</div>
+                    <h2 className="product__name strain--indica">{name}</h2>
+                    <div className="product__brand">{brand}</div>
+                    <div className="product__price">${price}</div>
                   </div>
 
                   <p>
@@ -83,7 +85,7 @@ class Product extends Component {
                 <div className="menu__content--product">
                   <img
                     className="product__image"
-                    src="/static/curt-ice-01.jpg"
+                    src={`/static/products/${image}`}
                   />
 
                   <Button
@@ -189,7 +191,9 @@ class Product extends Component {
 }
 
 const mapStateToProps = state => ({
-  showProduct: state.showProduct
+  showProduct: state.showProduct,
+  products: state.products,
+  currentProduct: state.currentProduct
 });
 
 export default connect(
