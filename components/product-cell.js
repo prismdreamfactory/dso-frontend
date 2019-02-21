@@ -9,9 +9,10 @@ class ProductCell extends Component {
     this.props.viewProduct(this.props.id);
   };
 
-  addToCart = (e, id) => {
+  addToCart = e => {
     e.stopPropagation();
-    this.props.addToCart(3);
+
+    this.props.addToCart(this.props.currentProduct);
   };
 
   render() {
@@ -24,15 +25,12 @@ class ProductCell extends Component {
     return (
       <div className="product" style={gridStyle} onClick={this.showProduct}>
         <div className="product__image">
-          {this.props.video ? (
+          {image.split('.').pop() === 'mp4' ? (
             <video src={`/static/${image}`} autoPlay muted loop={true} />
           ) : (
             <img src={`/static/products/${image}`} />
           )}
-          <button
-            className="product__add"
-            onClick={(e, id) => this.addToCart(e, id)}
-          >
+          <button className="product__add" onClick={e => this.addToCart(e)}>
             <ReactSVG
               src="/static/icons/_ionicons_svg_ios-add-circle-outline.svg"
               svgStyle={{ width: '2rem', fill: '#666' }}

@@ -274,7 +274,7 @@ export default {
     name: "Snoop's Choice",
     brand: 'Snoop',
     price: 125,
-    type: 'indica',
+    type: 'Indica',
     category: 7,
     image: 'box-05.jpg'
   },
@@ -283,7 +283,7 @@ export default {
     name: "Chong's Choice",
     brand: 'Chong',
     price: 125,
-    type: 'sativa',
+    type: 'Sativa',
     category: 7,
     image: 'box-06.jpg'
   },
@@ -292,7 +292,7 @@ export default {
     name: 'Garrison Lanes Top Shelf',
     brand: 'Garrison Lane',
     price: 125,
-    type: 'hybrid',
+    type: 'Hybrid',
     category: 7,
     image: 'box-04.jpg'
   },
@@ -301,7 +301,7 @@ export default {
     name: 'Jungle Boys Only',
     brand: 'Jungle Boys',
     price: 125,
-    type: 'sativa',
+    type: 'Sativa',
     category: 7,
     image: 'box-03.jpg'
   }

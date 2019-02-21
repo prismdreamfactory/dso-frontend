@@ -134,7 +134,7 @@ class MyApp extends App {
               .section__title--more {
                 flex-direction: row;
                 justify-content: space-between;
-                align-items: center;
+                align-items: flex-end;
               }
 
               .strain--indica {

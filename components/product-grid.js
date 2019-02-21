@@ -1,6 +1,6 @@
 import ProductCell from './product-cell';
 
-const ProductGrid = products => {
+const ProductGrid = props => {
   return (
     <div style={{ width: '100%' }}>
       <div className="hero">
@@ -31,11 +31,9 @@ const ProductGrid = products => {
         </div>
 
         <div className="products">
-          {Object.values(products)
-            .filter(product => product.category === 4)
-            .map(props => (
-              <ProductCell key={props.id} {...props} gridStyle />
-            ))}
+          {Object.values(props).map(prop => (
+            <ProductCell key={prop.id} {...prop} gridStyle />
+          ))}
         </div>
       </div>
 
@@ -138,7 +136,7 @@ const ProductGrid = products => {
           }
 
           .products {
-            margin-bottom: 1rem;
+            margin: 1rem 0;
             display: flex;
             align-items: flex-start;
             flex-wrap: wrap;

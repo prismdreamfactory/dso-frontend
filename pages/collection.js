@@ -9,14 +9,16 @@ import Head from 'next/head';
 import { fetchProducts } from '../store';
 
 class Collection extends Component {
-  static getInitialProps = ({ query, page }) => ({ name: query.name, page });
+  static getInitialProps = ({ query }) => ({ name: query.name, id: query.id });
 
   componentDidMount() {
     this.props.fetchProducts();
   }
 
   getCollection = () =>
-    this.props.collections.filter(x => x === this.props.name);
+    Object.values(this.props.products).filter(
+      product => product.category === this.props.id
+    );
 
   render = () => (
     <div>
@@ -27,9 +29,11 @@ class Collection extends Component {
           <meta name="title" />
         </Head>
 
-        <ProductGrid {...this.props.products} />
+        <ProductGrid {...this.getCollection()} />
         {this.props.showCart && <Cart />}
-        {this.props.showProduct && <Product />}
+        {this.props.showProduct && (
+          <Product currentProduct={this.props.currentProduct} />
+        )}
       </Layout>
     </div>
   );
@@ -38,7 +42,8 @@ class Collection extends Component {
 const mapStateToProps = state => ({
   products: state.products,
   showCart: state.showCart,
-  showProduct: state.showProduct
+  showProduct: state.showProduct,
+  currentProduct: state.currentProduct
 });
 
 export default connect(

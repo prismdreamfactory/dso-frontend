@@ -22,12 +22,12 @@ class Button extends PureComponent {
               font-size: 0.9375rem;
               line-height: 1.0625rem;
               padding: 0 2rem;
-              border: 1px solid #000;
+              // border: 1px solid #000;
               width: 100%;
               max-width: 250px;
-              transition: 0.1s;
-              // background-image: url(https://images.pexels.com/photos/908283/pexels-photo-908283.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
-              // color: #fff;
+              transition: 0.2s ease;
+              background-image: url(https://i.pinimg.com/originals/eb/9e/cf/eb9ecf6ba9a6d335fa8a321ac7594f4b.jpg);
+              color: #fff;
             }
 
             button.alt {
@@ -36,8 +36,9 @@ class Button extends PureComponent {
             }
 
             button:hover {
-              background-color: #000;
-              color: #fff;
+              // background-color: #000;
+              // color: #fff;
+              opacity: 0.8;
             }
 
             button.alt:hover {

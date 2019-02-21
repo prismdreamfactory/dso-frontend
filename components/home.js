@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Button from '../microcomponents/button';
 import { Link as ScrollLink, Element } from 'react-scroll';
 import ProductCell from '../components/product-cell';
+import Link from 'next/link';
 import { toggleCart, viewProduct, fetchProducts } from '../store';
 
 class Home extends Component {
@@ -117,7 +118,7 @@ class Home extends Component {
                 </p>
               </div>
               <div>
-                <Button label="See More" href="/collection/flower" />
+                <Button label="View Collection" href="/collection/flower" />
               </div>
             </div>
 
@@ -142,7 +143,10 @@ class Home extends Component {
                 </p>
               </div>
               <div>
-                <Button label="See More" href="/collection/flower" />
+                <Button
+                  label="View Collection"
+                  href="/collection/concentrates"
+                />
               </div>
             </div>
 
@@ -164,7 +168,7 @@ class Home extends Component {
                 <p>DSO Grade Strains</p>
               </div>
               <div>
-                <Button label="See More" href="/collection/flower" />
+                <Button label="View Collection" href="/collection/edibles" />
               </div>
             </div>
 
@@ -186,7 +190,7 @@ class Home extends Component {
                 <p>Discreet and easy. Use with any 510-compatible battery.</p>
               </div>
               <div>
-                <Button label="See More" href="/collection/flower" />
+                <Button label="View Collection" href="/collection/vapes" />
               </div>
             </div>
 
@@ -208,7 +212,7 @@ class Home extends Component {
                 <p />
               </div>
               <div>
-                <Button label="See More" href="/collection/flower" />
+                <Button label="View Collection" href="/collection/cbd" />
               </div>
             </div>
 
@@ -230,7 +234,10 @@ class Home extends Component {
                 <p>Tools, add-ons, and gear to help you enjoy the moment.</p>
               </div>
               <div>
-                <Button label="See More" href="/collection/flower" />
+                <Button
+                  label="View Collection"
+                  href="/collection/accessories"
+                />
               </div>
             </div>
 
