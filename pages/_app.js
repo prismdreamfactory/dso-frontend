@@ -113,14 +113,16 @@ class MyApp extends App {
                 flex-direction: column;
                 max-width: 75rem;
                 width: 100%;
-                margin: 2rem auto;
+                margin: 4rem auto;
               }
 
               .section__title {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                align-items: flex-start;
+                align-items: center;
+                text-align: center;
+                position: relative;
                 // margin: 1.875rem 0 0 0;
               }
               .section__title h2 {

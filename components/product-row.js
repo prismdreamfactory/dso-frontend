@@ -6,11 +6,11 @@ const ProductRow = props => {
     <div className={`section section--${props.name}`}>
       <section>
         <div className="section__title section__title--more">
-          <div>
+          <div className="section__heading">
             <h2>{props.name}</h2>
             <p>{props.description}</p>
           </div>
-          <div>
+          <div className="button-wrapper">
             <Button
               label="View Collection"
               href={`/collection/${props.name}`}
@@ -28,6 +28,19 @@ const ProductRow = props => {
       </section>
 
       <style jsx>{`
+        .section__heading {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+        }
+
+        .button-wrapper {
+          position: absolute;
+          right: 0;
+        }
+
         .products {
           margin-bottom: 1rem;
           display: flex;

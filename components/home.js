@@ -85,7 +85,35 @@ class Home extends Component {
           </div>
         </div>
 
-        <div id="subscribe" style={{ paddingTop: '1rem' }}>
+        <section>
+          <div className="section__title" style={{ paddingTop: '2rem' }}>
+            <h2>How It Works</h2>
+            <p>DSO Grade Strains A La Carte</p>
+          </div>
+          <div className="how">
+            <div className="how__container">
+              <div className="how__items">
+                <div className="how__item">
+                  <img className="how__image" src="/static/icons/au-box.svg" />
+                  <p>Select your box.</p>
+                </div>
+                <div className="how__item">
+                  <img className="how__image" src="/static/icons/au-id.svg" />
+                  <p>Create account.</p>
+                </div>
+                <div className="how__item">
+                  <img
+                    className="how__image"
+                    src="/static/icons/au-deliver.svg"
+                  />
+                  <p>Get it delivered.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div id="subscribe">
           {Object.values(collections).map(collection => (
             <ProductRow {...this.props} {...collection} key={collection.id} />
           ))}
@@ -168,6 +196,7 @@ class Home extends Component {
           .how__container {
             display: flex;
             align-items: center;
+            margin: 1rem 0;
           }
 
           .how__items {
