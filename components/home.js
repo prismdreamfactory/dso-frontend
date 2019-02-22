@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Button from '../microcomponents/button';
 import { Link as ScrollLink, Element } from 'react-scroll';
+import ProductRow from '../components/product-row';
 import ProductCell from '../components/product-cell';
 import Link from 'next/link';
 import { toggleCart, viewProduct, fetchProducts } from '../store';
@@ -19,18 +20,6 @@ class Home extends Component {
         <div className="hero">
           <div className="hero__image">
             <div className="hero__video">
-              {/* <iframe
-                src="https://www.youtube.com/embed/zUsNyFwPtAQ?autoplay=1"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              /> */}
-              {/* <iframe
-                src="https://www.youtube.com/embed/XM2fpUQTLds?autoplay=1&loop=1&mute=1&rel=0&showinfo=0&controls=0"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              /> */}
               <video
                 className="hero__video"
                 src="/static/hero.mp4"
@@ -41,21 +30,27 @@ class Home extends Component {
             </div>
 
             <section className="hero__description">
-              {/* <h3>High-end strains delivered to you</h3> */}
-              <p>
-                Get a curated box monthly filled with certified DSO-grade
-                cannabis products delivered to you.
-              </p>
-              <ScrollLink
-                activeClass="active"
-                to="subscribe"
-                spy={true}
-                smooth={true}
-                offset={-50}
-                duration={500}
-              >
-                <Button label="Subscribe" alt />
-              </ScrollLink>
+              <div className="section">
+                <h3 style={{ marginBottom: 0 }}>
+                  Get high-end strains monthly
+                </h3>
+                <p style={{ maxWidth: '400px' }}>
+                  Designer Strains Only is dedicated to providing luxury
+                  cannabis strains in a curated monthly members only
+                  subscription box. All of our products are rigorously tested
+                  and product handled with the utmost respect for our clients.
+                </p>
+                <ScrollLink
+                  activeClass="active"
+                  to="subscribe"
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={500}
+                >
+                  <Button label="Subscribe" alt />
+                </ScrollLink>
+              </div>
             </section>
           </div>
         </div>
@@ -90,165 +85,10 @@ class Home extends Component {
           </div>
         </div>
 
-        <section id="subscribe" style={{ paddingTop: '2rem' }}>
-          <Element name="subscribe">
-            <div className="section__title">
-              <h2>Monthly Subscription Box</h2>
-              <p>DSO Grade Strains Delivered Direct to Your Door</p>
-            </div>
-          </Element>
-
-          <div className="products">
-            {Object.values(products)
-              .filter(product => product.category === 7)
-              .map(props => (
-                <ProductCell key={props.id} {...props} />
-              ))}
-          </div>
-        </section>
-
-        <div className="section section--flower">
-          <section>
-            <div className="section__title section__title--more">
-              <div>
-                <h2>Flower</h2>
-                <p>
-                  The highest-quality bud. Grind it up, roll it, or pack into
-                  your preferred smoking device.
-                </p>
-              </div>
-              <div>
-                <Button label="View Collection" href="/collection/flower" />
-              </div>
-            </div>
-
-            <div className="products">
-              {Object.values(products)
-                .filter(product => product.category === 1)
-                .map(props => (
-                  <ProductCell key={props.id} {...props} video />
-                ))}
-            </div>
-          </section>
-        </div>
-
-        <div className="section section--concentrate">
-          <section>
-            <div className="section__title section__title--more">
-              <div>
-                <h2>Concentrates</h2>
-                <p>
-                  Highly potent cannabis extracts — favored by advanced
-                  customers.
-                </p>
-              </div>
-              <div>
-                <Button
-                  label="View Collection"
-                  href="/collection/concentrates"
-                />
-              </div>
-            </div>
-
-            <div className="products">
-              {Object.values(products)
-                .filter(product => product.category === 2)
-                .map(props => (
-                  <ProductCell key={props.id} {...props} />
-                ))}
-            </div>
-          </section>
-        </div>
-
-        <div className="section section--edibles">
-          <section>
-            <div className="section__title section__title--more">
-              <div>
-                <h2>Edibles</h2>
-                <p>DSO Grade Strains</p>
-              </div>
-              <div>
-                <Button label="View Collection" href="/collection/edibles" />
-              </div>
-            </div>
-
-            <div className="products">
-              {Object.values(products)
-                .filter(product => product.category === 3)
-                .map(props => (
-                  <ProductCell key={props.id} {...props} />
-                ))}
-            </div>
-          </section>
-        </div>
-
-        <div className="section section--vape">
-          <section>
-            <div className="section__title section__title--more">
-              <div>
-                <h2>Vaporizer Cartridges</h2>
-                <p>Discreet and easy. Use with any 510-compatible battery.</p>
-              </div>
-              <div>
-                <Button label="View Collection" href="/collection/vapes" />
-              </div>
-            </div>
-
-            <div className="products">
-              {Object.values(products)
-                .filter(product => product.category === 4)
-                .map(props => (
-                  <ProductCell key={props.id} {...props} />
-                ))}
-            </div>
-          </section>
-        </div>
-
-        <div className="section section--cbd">
-          <section>
-            <div className="section__title section__title--more">
-              <div>
-                <h2>CBD</h2>
-                <p />
-              </div>
-              <div>
-                <Button label="View Collection" href="/collection/cbd" />
-              </div>
-            </div>
-
-            <div className="products">
-              {Object.values(products)
-                .filter(product => product.category === 5)
-                .map(props => (
-                  <ProductCell key={props.id} {...props} />
-                ))}
-            </div>
-          </section>
-        </div>
-
-        <div className="section section--accessories">
-          <section>
-            <div className="section__title section__title--more">
-              <div className="section__title">
-                <h2>Glass & Accessories</h2>
-                <p>Tools, add-ons, and gear to help you enjoy the moment.</p>
-              </div>
-              <div>
-                <Button
-                  label="View Collection"
-                  href="/collection/accessories"
-                />
-              </div>
-            </div>
-
-            <div className="products">
-              {Object.values(products)
-                .filter(product => product.category === 6)
-                .map(props => (
-                  <ProductCell key={props.id} {...props} />
-                ))}
-            </div>
-          </section>
+        <div id="subscribe" style={{ paddingTop: '1rem' }}>
+          {Object.values(collections).map(collection => (
+            <ProductRow {...this.props} {...collection} key={collection.id} />
+          ))}
         </div>
 
         <style jsx>{`
@@ -265,7 +105,7 @@ class Home extends Component {
             background-size: cover;
             background-position: 0 50%;
             background-color: #000;
-            // background-image: url(https://images.unsplash.com/photo-1532467411038-57680e3dc0f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);
+            background-image: url(https://images.pexels.com/photos/908283/pexels-photo-908283.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
             // display: flex;
             // justify-content: center;
             overflow: hidden;
@@ -359,47 +199,6 @@ class Home extends Component {
             align-items: flex-start;
           }
 
-          .product {
-            display: flex;
-            flex-direction: column;
-            width: calc(25% - 1.125rem);
-            margin: 2rem 1.5rem 1.5rem 0;
-            cursor: pointer;
-          }
-
-          .product:last-child {
-            margin-right: 0;
-          }
-
-          .product__image {
-            height: 250px;
-            object-fit: cover;
-          }
-
-          .product__image:last-child {
-            margin: 0;
-          }
-
-          .product__info {
-            margin: 1rem 0;
-          }
-
-          .product__name {
-            // color: #fff;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-          }
-
-          .product__brand {
-            // color: #fff;
-          }
-
-          .product__price {
-            // color: #fff;
-            font-weight: 700;
-            margin-top: 0.5rem;
-          }
-
           .section {
             background-size: cover;
           }
@@ -421,6 +220,13 @@ class Home extends Component {
               max-width: 100%;
             }
 
+            .hero__image {
+            }
+
+            .hero__image video {
+              display: none;
+            }
+
             .how__items {
               display: block;
             }
@@ -431,15 +237,6 @@ class Home extends Component {
             .brands__logo {
               margin-bottom: 0.5rem;
             }
-
-            .product {
-              width: 100%;
-              margin-right: 1rem;
-            }
-
-            .product__image {
-              height: 150px;
-            }
           }
         `}</style>
       </div>
@@ -448,8 +245,8 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-  collections: state.collections,
-  products: state.products
+  // collections: state.collections,
+  // products: state.products
 });
 
 export default connect(

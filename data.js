@@ -5,7 +5,7 @@ export default {
     brand: 'Queen of Hearts',
     price: 125,
     type: 'Hybrid',
-    category: 1,
+    category: 2,
     image: 'video-02.mp4'
   },
   2: {
@@ -14,7 +14,7 @@ export default {
     brand: '303 Seeds',
     price: 125,
     type: 'Hybrid',
-    category: 1,
+    category: 2,
     image: 'video-03.mp4'
   },
   3: {
@@ -23,7 +23,7 @@ export default {
     brand: 'Aficianado',
     price: 125,
     type: 'Sativa',
-    category: 1,
+    category: 2,
     image: 'video-01.mp4'
   },
   4: {
@@ -32,7 +32,7 @@ export default {
     brand: 'Jungle Boys',
     price: 125,
     type: 'Indica',
-    category: 1,
+    category: 2,
     image: 'video-04.mp4'
   },
   5: {
@@ -41,7 +41,7 @@ export default {
     brand: 'Jungle Boys',
     price: 125,
     type: 'Hybrid',
-    category: 1,
+    category: 2,
     image: 'video-02.mp4'
   },
   6: {
@@ -50,7 +50,7 @@ export default {
     brand: 'Got Excellence',
     price: 125,
     type: 'Indica',
-    category: 2,
+    category: 3,
     image: 'concentrate-gotexcellence.jpg'
   },
   7: {
@@ -59,7 +59,7 @@ export default {
     brand: 'Golden Leaf Scientifics',
     price: 125,
     type: 'Indica',
-    category: 2,
+    category: 3,
     image: 'concentrate-goldenleaf.jpg'
   },
   8: {
@@ -68,7 +68,7 @@ export default {
     brand: '420 Queen of Hearts',
     price: 125,
     type: 'Sativa',
-    category: 2,
+    category: 3,
     image: 'concentrate-queenofhearts.jpg'
   },
   9: {
@@ -77,7 +77,7 @@ export default {
     brand: 'Curt Ice',
     price: 125,
     type: 'Indica',
-    category: 2,
+    category: 3,
     image: 'concentrate-01.jpg'
   },
   10: {
@@ -86,7 +86,7 @@ export default {
     brand: 'Curt Ice',
     price: 125,
     type: 'Indica',
-    category: 2,
+    category: 3,
     image: 'concentrate-03.jpg'
   },
   11: {
@@ -95,7 +95,7 @@ export default {
     brand: 'Kiva',
     price: 125,
     type: 'Indica',
-    category: 3,
+    category: 4,
     image: 'edibles-01.jpg'
   },
   12: {
@@ -104,7 +104,7 @@ export default {
     brand: 'Decaffeinated',
     price: 125,
     type: 'Hybrid',
-    category: 3,
+    category: 4,
     image: 'edibles-05.jpg'
   },
   13: {
@@ -113,7 +113,7 @@ export default {
     brand: 1906,
     price: 125,
     type: 'Indica',
-    category: 3,
+    category: 4,
     image: 'edibles-04.jpg'
   },
   14: {
@@ -122,7 +122,7 @@ export default {
     brand: 'Zen Garden',
     price: 125,
     type: 'Hybrid',
-    category: 3,
+    category: 4,
     image: 'edibles-03.jpg'
   },
   15: {
@@ -131,7 +131,7 @@ export default {
     brand: 'Jungle Boys',
     price: 125,
     type: 'Indica',
-    category: 3,
+    category: 4,
     image: 'edibles-02.jpg'
   },
   16: {
@@ -140,7 +140,7 @@ export default {
     brand: 'Paris',
     price: 125,
     type: 'Hybrid',
-    category: 4,
+    category: 5,
     image: 'vape-paris.jpg'
   },
   17: {
@@ -149,7 +149,7 @@ export default {
     brand: 'Madre',
     price: 125,
     type: 'Indica',
-    category: 4,
+    category: 5,
     image: 'vape-madre.jpg'
   },
   18: {
@@ -158,7 +158,7 @@ export default {
     brand: 'KNG',
     price: 125,
     type: 'Hybrid',
-    category: 4,
+    category: 5,
     image: 'vape-king.jpg'
   },
   19: {
@@ -167,7 +167,7 @@ export default {
     brand: 'ABX',
     price: 125,
     type: 'Sativa',
-    category: 4,
+    category: 5,
     image: 'vape-abx.jpg'
   },
   20: {
@@ -176,7 +176,7 @@ export default {
     brand: 'Honey',
     price: 125,
     type: 'Hybrid',
-    category: 4,
+    category: 5,
     image: 'vape-honey.jpg'
   },
   21: {
@@ -185,7 +185,7 @@ export default {
     brand: 'Koi',
     price: 125,
     type: 'CBD',
-    category: 5,
+    category: 6,
     image: 'cbd-koi.jpg'
   },
   22: {
@@ -194,7 +194,7 @@ export default {
     brand: 'Select',
     price: 125,
     type: 'CBD',
-    category: 5,
+    category: 6,
     image: 'cbd-select-drops-lavender.jpg'
   },
   23: {
@@ -203,7 +203,7 @@ export default {
     brand: 'Select',
     price: 125,
     type: 'CBD',
-    category: 5,
+    category: 6,
     image: 'cbd-select-drops-lemon.jpg'
   },
   24: {
@@ -212,7 +212,7 @@ export default {
     brand: 'Select',
     price: 125,
     type: 'CBD',
-    category: 5,
+    category: 6,
     image: 'cbd-select.jpg'
   },
   25: {
@@ -221,7 +221,7 @@ export default {
     brand: 'Medterra',
     price: 125,
     type: 'CBD',
-    category: 5,
+    category: 6,
     image: 'cbd-medterra.jpg'
   },
   26: {
@@ -230,7 +230,7 @@ export default {
     brand: 'Freek',
     price: 125,
     type: '',
-    category: 6,
+    category: 7,
     image: 'accessories-freek-tube.jpg'
   },
   27: {
@@ -239,7 +239,7 @@ export default {
     brand: 'Regenbogen',
     price: 125,
     type: '',
-    category: 6,
+    category: 7,
     image: 'accessories-regenbogen.jpg'
   },
   28: {
@@ -248,7 +248,7 @@ export default {
     brand: 'Tetra',
     price: 125,
     type: '',
-    category: 6,
+    category: 7,
     image: 'accessories-tetra-02.jpg'
   },
   29: {
@@ -257,7 +257,7 @@ export default {
     brand: 'Tetra',
     price: 125,
     type: '',
-    category: 6,
+    category: 7,
     image: 'accessories-tetra.jpg'
   },
   30: {
@@ -266,7 +266,7 @@ export default {
     brand: 'Mobius',
     price: 125,
     type: '',
-    category: 6,
+    category: 7,
     image: 'accessories-mobius-bong.jpg'
   },
   31: {
@@ -275,7 +275,7 @@ export default {
     brand: 'Snoop',
     price: 125,
     type: 'Indica',
-    category: 7,
+    category: 1,
     image: 'box-05.jpg'
   },
   32: {
@@ -284,7 +284,7 @@ export default {
     brand: 'Chong',
     price: 125,
     type: 'Sativa',
-    category: 7,
+    category: 1,
     image: 'box-06.jpg'
   },
   33: {
@@ -293,7 +293,7 @@ export default {
     brand: 'Garrison Lane',
     price: 125,
     type: 'Hybrid',
-    category: 7,
+    category: 1,
     image: 'box-04.jpg'
   },
   34: {
@@ -302,7 +302,7 @@ export default {
     brand: 'Jungle Boys',
     price: 125,
     type: 'Sativa',
-    category: 7,
+    category: 1,
     image: 'box-03.jpg'
   }
 };

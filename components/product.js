@@ -31,8 +31,6 @@ class Product extends Component {
   };
 
   render() {
-    console.log(this.props);
-
     const { products, currentProduct } = this.props;
     const product = products[currentProduct];
     const { image, type, name, brand, price } = product;

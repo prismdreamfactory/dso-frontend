@@ -7,13 +7,39 @@ const INITIAL_STATE = {
   cart: [1, 2],
   products: {},
   collections: {
-    1: { id: '1', name: 'flower', products: [1, 2, 3, 4, 5, 6] },
-    2: { id: '2', name: 'concentrates', products: [1, 2, 3, 4, 5, 6] },
-    3: { id: '3', name: 'edibles', products: [1, 2, 3, 4, 5, 6] }
+    1: {
+      id: 1,
+      name: 'boxes',
+      description: 'DSO Grade Strains Delivered Direct to Your Door.'
+    },
+    2: {
+      id: 2,
+      name: 'flower',
+      description:
+        'The highest-quality bud. Grind it up, roll it, or pack into your preferred smoking device.'
+    },
+    3: {
+      id: 3,
+      name: 'concentrates',
+      description:
+        'Highly potent cannabis extracts — favored by advanced customers.'
+    },
+    4: { id: 4, name: 'edibles', description: 'DSO Grade Strains' },
+    5: {
+      id: 5,
+      name: 'vapes',
+      description: 'Discreet and easy. Use with any 510-compatible battery.'
+    },
+    6: { id: 6, name: 'cbd', description: '' },
+    7: {
+      id: 7,
+      name: 'accessories',
+      description: 'Tools, add-ons, and gear to help you enjoy the moment.'
+    }
   },
   showCart: false,
   showProduct: false,
-  currentProduct: ''
+  currentProduct: null
 };
 
 export const actionTypes = {

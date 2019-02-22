@@ -146,6 +146,12 @@ class MyApp extends App {
               .strain--hybrid {
                 color: rgb(118, 189, 29);
               }
+
+              @media (max-width: 768px) {
+                .section {
+                  margin: 0 1rem;
+                }
+              }
             `}</style>
           </div>
         </Provider>
