@@ -1,5 +1,5 @@
-import Head from 'next/head';
-import Nav from './nav';
+import Head from "next/head";
+import Nav from "./nav";
 
 export default ({ children }) => (
   <div>
@@ -24,7 +24,7 @@ export default ({ children }) => (
     <div className="container">{children}</div>
 
     <footer>
-      <p>Copyright Designer Strains Only 2019</p>
+      <p>Copyright Designer Strains Only 2022</p>
     </footer>
 
     <style jsx>{`
