@@ -1,18 +1,20 @@
-import React, { PureComponent } from 'react';
-import Link from 'next/link';
+import React, { PureComponent } from "react";
+import Link from "next/link";
 
 class Button extends PureComponent {
   render() {
     return (
-      <Link href={this.props.href || ''} as={this.props.as}>
+      <Link href={this.props.href || ""} as={this.props.as}>
         <button
           onClick={this.props.onClick}
-          className={this.props.alt ? 'alt' : ''}
+          className={this.props.alt ? "alt" : ""}
         >
           {this.props.label}
 
           <style jsx>{`
             button {
+              display: flex;
+              align-items: center;
               box-sizing: border-box;
               cursor: pointer;
               display: inline-flex;
